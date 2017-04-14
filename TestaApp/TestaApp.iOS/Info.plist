@@ -16,15 +16,13 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
 	<string>9.3</string>
 	<key>CFBundleDisplayName</key>
-	<string>TestaApp</string>
+	<string>OneSystem Audit</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.TestaApp</string>
+	<string>com.yourcompany.OneSystemAudit</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CFBundleIconFiles</key>
@@ -40,5 +38,7 @@
 	<string>LaunchScreen.storyboard</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>LaunchScreen</string>
 </dict>
 </plist>

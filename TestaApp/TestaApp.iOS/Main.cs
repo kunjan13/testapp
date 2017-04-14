@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace TestaApp.iOS
+namespace OneSystemAudit.iOS
 {
     public class Application
     {

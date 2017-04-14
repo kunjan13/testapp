@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuditAppPcl", "TestaApp\TestaApp\AuditAppPcl.csproj", "{19BA0BE9-0FE1-48CD-9D09-592B9B85D45E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestaApp.iOS", "TestaApp\TestaApp.iOS\TestaApp.iOS.csproj", "{4C0A7CD9-01FF-430E-A5D9-F6250FF51BEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OneSystemAudit.iOS", "TestaApp\TestaApp.iOS\OneSystemAudit.iOS.csproj", "{4C0A7CD9-01FF-430E-A5D9-F6250FF51BEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestaApp.WinPhone", "TestaApp\TestaApp.WinPhone\TestaApp.WinPhone.csproj", "{99752EB9-4AE1-4BDA-94B8-574C90AB02A2}"
 EndProject
