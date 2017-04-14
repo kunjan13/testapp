@@ -14,9 +14,9 @@ namespace AuditAppPcl
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListAudits : ContentPage
     {
-        public ObservableCollection<Audit> auditList = new ObservableCollection<Audit>() {
-            new Audit { userId = "a", Description = "aaa" },
-            new Audit { userId = "b", Description = "bbb" }
+        public ObservableCollection<AuditTemp> auditList = new ObservableCollection<AuditTemp>() {
+            new AuditTemp { userId = "a", Description = "aaa" },
+            new AuditTemp { userId = "b", Description = "bbb" }
         };
         public IAuditServiceManager auditServiceManager;
         public ListAudits(IAuditServiceManager auditServiceManager)
@@ -26,13 +26,13 @@ namespace AuditAppPcl
 
             listView.ItemTemplate = new DataTemplate(typeof(TextCell)); // has context actions defined
             listView.ItemTemplate.SetBinding(TextCell.TextProperty, "userId");
-            //listView.ItemTemplate.SetBinding(TextCell.DetailProperty, "Description");
+            listView.ItemTemplate.SetBinding(TextCell.DetailProperty, "body");
             listView.ItemsSource = GetAudits();
         }
 
-        private List<Audit> GetAudits()
+        private List<AuditTemp> GetAudits()
         {
-            return auditServiceManager.GetAudits().Result;
+            return Task.Run(async () => await auditServiceManager.GetAuditsTemp()).Result;
         }
     }
 }

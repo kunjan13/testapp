@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace AuditAppPcl.Repository.Contracts
 {
-    public interface IAuditServiceRepository
+    public interface IAuditRepository
     {
         Task<List<Audit>> GetAudits();
 
-        Task<Audit> UploadAudit(Audit Audit);
+        Task<List<string>> GetAuditIds();
 
-        Task<List<Entities.AuditTemp>> GetAuditsTemp();
+        Task<Audit> GetAuditById(int id);
+
+        Task InsertAudit(Audit audit);
     }
 }

@@ -28,7 +28,7 @@ namespace TestaApp.WinPhone
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
 
-            LoadApplication(new TestaApp.App());
+            LoadApplication(new AuditAppPcl.App());
         }
 
         /// <summary>

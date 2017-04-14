@@ -9,6 +9,9 @@ namespace AuditAppPcl.Manager.Contracts
 {
     public interface IAuditServiceManager
     {
+        Task<List<AuditTemp>> GetAuditsTemp();
         Task<List<Audit>> GetAudits();
+
+        Task<int> DownloadAudit(string serviceAuditId);
     }
 }

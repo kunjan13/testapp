@@ -1,4 +1,4 @@
-﻿using AuditAppPcl.Entities;
+﻿using AuditAppPcl.Entities.Database;
 using AuditAppPcl.Repository.Contracts;
 using AuditAppPcl.RestClient;
 using Newtonsoft.Json;
@@ -24,9 +24,21 @@ namespace AuditAppPcl.Repository.Concrete
         public async Task<List<Audit>> GetAudits()
         {
             var client = new HttpClient();
-            var data = await client.GetStringAsync(baseUrl + "posts");
-            var audits = JsonConvert.DeserializeObject<List<Audit>>(data);
-            return audits;
+            var data = await restClient.GetAsync<List<Audit>>(baseUrl + "posts");
+            return data;
+        }
+
+        public async Task<List<Entities.AuditTemp>> GetAuditsTemp()
+        {
+            var client = new HttpClient();
+            var data = await restClient.GetAsync<List<Entities.AuditTemp>>("posts");
+            //var audits = JsonConvert.DeserializeObject<List<Audit>>(data);
+            return data;
+        }
+
+        public Task<Audit> UploadAudit(Audit Audit)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,14 +1,19 @@
-﻿using System;
+﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuditAppPcl.Entities
+namespace AuditAppPcl.Entities.Database
 {
     public class Audit
     {
+        [PrimaryKey]
+        [AutoIncrement]
         public int AuditAppId { get; set; }
+
         public string ItemID { get; set; } //[ItemID]
         public string ParentID { get; set; } //[ItemID] of case
         public string ApplicantName { get; set; } //[Company]
@@ -25,15 +30,16 @@ namespace AuditAppPcl.Entities
         public string InspectionNumber { get; set; } //[Number]: Number
         public string Comment { get; set; }//[Comment]
         public List<Comment> Comments { get; set; }
+
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Attachement> Attachements { get; set; } //max 30 //img to attachements, comments to comments table
         public string Signature { get; set; }//comment table
         public byte[] SignatureIMG { get; set; } //Attachemnts
 
 
         //App fields
-        public bool IsSynced { get; set; }
+        private bool isSynced = false;
+        public bool IsSynced { get { return isSynced; } set { isSynced = value; } }
         public DateTime SyncedDateTime { get; set; }
-
-        public bool IsDownloaded { get; set; }
     }
 }
