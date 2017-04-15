@@ -39,6 +39,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="CustomUI\AuditEntry.cs" />
+    <Compile Include="CustomUI\AuditHeadingLabel.cs" />
     <Compile Include="Database\AuditAppDatabase.cs" />
     <Compile Include="Database\IDatabaseHelper.cs" />
     <Compile Include="Entities\Attachement.cs" />

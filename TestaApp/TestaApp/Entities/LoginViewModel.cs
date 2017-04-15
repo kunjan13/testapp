@@ -23,7 +23,7 @@ namespace AuditAppPcl.Entities
 
         private string password;
 
-        private string Message { get; set; }
+        private string message;
 
         public string Username
         {
@@ -54,6 +54,20 @@ namespace AuditAppPcl.Entities
         }
 
         public INavigation Navigation { get; set; }
+
+        public string Message
+        {
+            get
+            {
+                return message;
+            }
+
+            set
+            {
+                message = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Message"));
+            }
+        }
 
         public LoginViewModel()
         {

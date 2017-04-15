@@ -22,7 +22,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>OneSystem Audit</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.OneSystemAudit</string>
+	<string>com.gatewaytechnolabs.OneSystemAudit</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>CFBundleIconFiles</key>

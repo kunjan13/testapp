@@ -16,11 +16,11 @@
             RelativeLayout.HeightConstraint=
               "{ConstraintExpression Type=RelativeToParent, Property=Height}">
 
-            <StackLayout VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="500" Padding="10,10,10,0">
+            <StackLayout VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="500" Padding="10,60,10,0">
 
-                <Image HorizontalOptions="Center" VerticalOptions="Center" Source="Logo"></Image>
+                <Image HorizontalOptions="Center" VerticalOptions="Center" Source="login_logo"></Image>
                 <Label HorizontalOptions="Center" x:Name="messageLabel" Text="{Binding Message}"
-                       TextColor="#0C585C" IsEnabled="False" HeightRequest="15" />
+                       TextColor="#0C585C" IsEnabled="False" HeightRequest="16" />
                 
                 <!--<Label FontSize="Medium" Text="Username" />-->
                 <customUI:AuditEntry x:Name="usernameEntry" HeightRequest="50"
@@ -45,7 +45,7 @@
         <StackLayout 
             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.25}"
             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}">
-            <Label Text="Copyright @ Onesystems. All rights reserved." FontSize="Medium" TextColor="#ffffffff" LineBreakMode="NoWrap"/>
+            <Label Text="Copyright @ Onesystems. All rights reserved." Margin="0,90,0,0" FontSize="Medium" TextColor="#ffffffff" LineBreakMode="NoWrap"/>
         </StackLayout>
     </RelativeLayout>
 </ContentPage>
