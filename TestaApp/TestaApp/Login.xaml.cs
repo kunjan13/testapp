@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using AuditAppPcl.Manager.Contracts;
+using AuditAppPcl.Entities;
 
 namespace AuditAppPcl
 {
@@ -12,23 +13,20 @@ namespace AuditAppPcl
         public Login(ILogin login)
         {
             this.login = login;
+            var vm = new LoginViewModel();
+            vm.Navigation = Navigation;
+            this.BindingContext = vm;
             InitializeComponent();
-        }
 
-        public async void OnLogin(object sender, EventArgs e)
-        {
-            var user = login.LoginUser(usernameEntry.Text, passwordEntry.Text);
-            if (string.IsNullOrEmpty(user.ErrorMessage))
+            usernameEntry.Completed += (object sender, EventArgs e) =>
             {
-                App.IsUserLoggedIn = true;
-                Navigation.InsertPageBefore(new ListAudits(UnityConfig.IAuditServiceManager), this);
-                await Navigation.PopAsync();
-            }
-            else
+                passwordEntry.Focus();
+            };
+
+            passwordEntry.Completed += (object sender, EventArgs e) =>
             {
-                messageLabel.Text = user.ErrorMessage;
-                passwordEntry.Text = string.Empty;
-            }
+                vm.SubmitCommand.Execute(null);
+            };
         }
     }
 }

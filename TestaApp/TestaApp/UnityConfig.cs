@@ -38,7 +38,7 @@ namespace AuditAppPcl
         public static void Configure()
         {
             container.RegisterType<ILoginRepository, LoginRepository>();
-            container.RegisterType<IAuditRepository, AuditRepository>();
+            //container.RegisterType<IAuditRepository, AuditRepository>();
             container.RegisterType<IAuditServiceRepository, AuditServiceRepository>();
             container.RegisterType<ManagerContract.ILogin, ManagerConcrete.Login>();
             container.RegisterType<ManagerContract.IAuditServiceManager, ManagerConcrete.AuditServiceManager>();

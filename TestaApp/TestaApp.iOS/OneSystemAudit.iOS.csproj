@@ -107,6 +107,7 @@
   <ItemGroup>
     <Compile Include="CustomUI\AuditEntryRenderer.cs" />
     <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="Localize.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="app.config">

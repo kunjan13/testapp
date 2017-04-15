@@ -50,6 +50,7 @@
     <Compile Include="Entities\Database\BuildingOfficer.cs" />
     <Compile Include="Entities\Database\Case.cs" />
     <Compile Include="Entities\Database\Comment.cs" />
+    <Compile Include="Entities\LoginViewModel.cs" />
     <Compile Include="Entities\Response\LoginResponse.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="ListAudits.xaml.cs">
@@ -77,6 +78,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\ILocalize.cs" />
+    <Compile Include="Resources\TranslateExtension.cs" />
     <Compile Include="RestClient\HttpClientEx.cs" />
     <Compile Include="RestClient\IRestClient.cs" />
     <Compile Include="RestClient\RestClient.cs" />
