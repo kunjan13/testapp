@@ -62,6 +62,15 @@ namespace AuditAppPcl.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string ButtonLogin {
+            get {
+                return ResourceManager.GetString("ButtonLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username or password is incorrect.
         /// </summary>
         internal static string EmptyUsernamePassword {
@@ -76,6 +85,24 @@ namespace AuditAppPcl.Resources {
         internal static string InvalidCredentials {
             get {
                 return ResourceManager.GetString("InvalidCredentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string PlaceholderPassword {
+            get {
+                return ResourceManager.GetString("PlaceholderPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        internal static string PlaceholderUsername {
+            get {
+                return ResourceManager.GetString("PlaceholderUsername", resourceCulture);
             }
         }
     }

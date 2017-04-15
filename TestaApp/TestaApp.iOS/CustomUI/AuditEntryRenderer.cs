@@ -20,12 +20,15 @@ namespace OneSystemAudit.iOS.CustomUI
                 var view = e.NewElement as AuditEntry;
                 // do whatever you want to the UITextField here!
                 Control.BorderStyle = UITextBorderStyle.Line;
-                Control.Layer.BorderColor = themeColor.ToCGColor();
+                Control.Layer.BorderColor = view.PlaceholderTextColor.ToCGColor();
+                Control.Layer.BorderWidth = 1;
                 var placeholderColor = new UIStringAttributes()
                 {
                     ForegroundColor = view.PlaceholderTextColor.ToUIColor()
                 };
                 NSAttributedString placeholderString = new NSAttributedString(view.Placeholder, placeholderColor);
+
+                Control.AttributedPlaceholder = placeholderString;
             }
         }
     }
