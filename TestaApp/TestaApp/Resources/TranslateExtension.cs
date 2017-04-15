@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 
 namespace AuditAppPcl.Resources
 {
+    [ContentProperty("Text")]
     public class TranslateExtension : IMarkupExtension
     {
         readonly CultureInfo ci = null;

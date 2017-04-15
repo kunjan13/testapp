@@ -17,11 +17,8 @@ namespace AuditAppPcl.Repository.Concrete
                     Email = "recieved from api"
                 };
             }
-            //return invalid credentials
-            return new User()
-            {
-                ErrorMessage = Resources.AppResources.InvalidCredentials
-            };
+            //return null=invalid credentials
+            return null;
         }
 
         bool AreCredentialsCorrect(string userName, string password)
