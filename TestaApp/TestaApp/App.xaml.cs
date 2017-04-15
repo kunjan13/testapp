@@ -24,9 +24,6 @@ namespace AuditAppPcl
             {
                 MainPage = new NavigationPage(new AuditAppPcl.ListAudits(UnityConfig.IAuditServiceManager));
             }
-            
-
-            //MainPage = new TestaApp.MainPage();
         }
 
         public void OpenPerformAuditPage()

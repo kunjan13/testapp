@@ -1,17 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customUI="clr-namespace:AuditAppPcl.CustomUI;assembly=AuditAppPcl"
              x:Class="AuditAppPcl.Login">
-    <ContentPage.Content>
-        <StackLayout VerticalOptions="StartAndExpand" Padding="10,40,10,10">
-            <Image HorizontalOptions="Center" VerticalOptions="Center" Source="Logo"></Image>
-            <Label HorizontalOptions="Center" x:Name="messageLabel" />
-            <Label FontSize="Medium" Text="Username" />
-            <Entry x:Name="usernameEntry" Placeholder="Username" />
-            <Label FontSize="Medium" Text="Password" />
-            <Entry x:Name="passwordEntry" IsPassword="true" Placeholder="Password" />
-            <Button HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" WidthRequest="200" 
-                    HeightRequest="50"  FontSize="Medium" BackgroundColor="Green" Text="Login" Clicked="OnLogin" />
-        </StackLayout>
-    </ContentPage.Content>
+    <RelativeLayout>
+        <Image Source="backgroundImage"
+                RelativeLayout.WidthConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint=
+                  "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
+
+        <Grid RelativeLayout.WidthConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint=
+              "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+
+            <StackLayout VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="500">
+
+                <Image HorizontalOptions="Center" VerticalOptions="Center" Source="Logo"></Image>
+                <Label HorizontalOptions="Center" x:Name="messageLabel" />
+                <!--<Label FontSize="Medium" Text="Username" />-->
+                <customUI:AuditEntry x:Name="usernameEntry" Placeholder="Username" HorizontalTextAlignment="Center" TextColor="#0C585C" PlaceholderTextColor="#0C585C"></customUI:AuditEntry>
+                <!--<Label FontSize="Medium" Text="Password" />-->
+                <customUI:AuditEntry x:Name="passwordEntry" IsPassword="true" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="#0C585C" PlaceholderTextColor="#0C585C"></customUI:AuditEntry>
+                <Button HorizontalOptions="Center" VerticalOptions="Center" TextColor="White" WidthRequest="200" 
+                    HeightRequest="50"  FontSize="Medium" BackgroundColor="#0C585C" Text="Login" Clicked="OnLogin" />
+            </StackLayout>
+        </Grid>
+    </RelativeLayout>
 </ContentPage>
