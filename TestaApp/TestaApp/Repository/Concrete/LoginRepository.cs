@@ -26,7 +26,7 @@ namespace AuditAppPcl.Repository.Concrete
 
         bool AreCredentialsCorrect(string userName, string password)
         {
-            return userName == "Test" && password == "pass";
+            return userName == "Test" && password == "123";
         }
     }
 }

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AuditAppPcl.PerformAudit">
+  <ContentPage.Content>
+    <!--<Grid x:Name="gridheader">
+        <Grid.RowDefinitions>
+          <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackLayout Grid.Row="0" Grid.Column="0" Padding="20,0,0,0" BackgroundColor="White">
+          <Label Text="Date:" YAlign="Center" TextColor="White"/>
+          <Label Text="12/04/2014" YAlign="Center" TextColor="White" x:Name="lblcurrentdate"/>
+        </StackLayout>
+        <StackLayout Grid.Row="0" Grid.Column="1" Padding="0,0,20,0">
+          <Grid HorizontalOptions="EndAndExpand">
+            <Button Text="View Report" TextColor="White" x:Name="btnReport" BorderRadius="5" FontSize="15"  HorizontalOptions="End" BackgroundColor="Transparent"/>
+          </Grid>
+        </StackLayout>
+      </Grid>-->
+    <StackLayout Spacing="10" x:Name="layout">
+      <Button x:Name="TakePictureButton" Clicked="TakePictureButton_Clicked" Text="Take from Camera"></Button>
+      <Image x:Name="Image1" HeightRequest="240" Source="Logo"></Image>
+
+      <!--<Grid>
+        <Grid.RowDefinitions >
+            <RowDefinitions Height="Auto" BackgroundColor="white"></RowDefinitions>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" BackgroundColor="white"/>
+        </Grid.ColumnDefinitions>
+      --><!--<Label Text="Top Left" Grid.Row="0" Grid.Column="0" TextColor="Black"/>--><!--
+      </Grid>-->
+      
+      <!--<Grid BackgroundColor="White" >
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="Top Left" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextColor="Aqua"/>
+        <Label Text="Bottom Left" Grid.Row="1" Grid.Column="0" TextColor="Black"/>
+        <Label Text="Bottom Right" Grid.Row="1" Grid.Column="1" TextColor="Black"/>
+      </Grid>-->
+      
+    <!--<TableView>
+        <TableRoot>
+            <TableSection Title="Test">     
+                <TextCell Text="Test"></TextCell>
+            </TableSection>
+        </TableRoot>
+    </TableView>-->
+    </StackLayout>
+
+  </ContentPage.Content>
+
+  <!--<Label Text="Camera" VerticalOptions="Center" HorizontalOptions="Center" />-->
+</ContentPage>

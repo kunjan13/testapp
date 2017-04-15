@@ -29,6 +29,11 @@ namespace AuditAppPcl
             //MainPage = new TestaApp.MainPage();
         }
 
+        public void OpenPerformAuditPage()
+        {
+            //MainPage = new NavigationPage(new AuditAppPcl.PerformAudit());
+        }
+
         protected override void OnStart()
         {
             // Handle when your app starts

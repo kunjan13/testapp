@@ -35,6 +35,14 @@ namespace AuditAppPcl
             }
         }
 
+        public static ManagerContract.IAuditInformation IAuditInformation
+        {
+            get
+            {
+                return container.Resolve<ManagerContract.IAuditInformation>();
+            }
+        }
+
         public static void Configure()
         {
             container.RegisterType<ILoginRepository, LoginRepository>();
@@ -42,6 +50,7 @@ namespace AuditAppPcl
             container.RegisterType<IAuditServiceRepository, AuditServiceRepository>();
             container.RegisterType<ManagerContract.ILogin, ManagerConcrete.Login>();
             container.RegisterType<ManagerContract.IAuditServiceManager, ManagerConcrete.AuditServiceManager>();
+            container.RegisterType<ManagerContract.IAuditInformation, ManagerConcrete.AuditInformation>();
             container.RegisterType<IRestClient, AuditAppPcl.RestClient.RestClient>();
             container.RegisterType<Login>(new ContainerControlledLifetimeManager());
 

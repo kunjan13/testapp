@@ -19,6 +19,15 @@ namespace AuditAppPcl
             new AuditTemp { userId = "b", Description = "bbb" }
         };
         public IAuditServiceManager auditServiceManager;
+
+
+        public async void OpenCameraPage(object sender, EventArgs e)
+        {
+            App.IsUserLoggedIn = true;
+            await Navigation.PushAsync(new PerformAudit(UnityConfig.IAuditInformation));
+            
+        }
+
         public ListAudits(IAuditServiceManager auditServiceManager)
         {
             this.auditServiceManager = auditServiceManager;
