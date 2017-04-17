@@ -5,25 +5,83 @@
              x:Class="AuditAppPcl.PerformAudit">
   <!--<Label FontSize="" FontAttributes="Bold"></Label>-->
   <ContentPage.Content>
-    <Grid x:Name="gridheader">
+    <Frame CornerRadius="5" OutlineColor="White" BackgroundColor="White" >
+      <!--<StackLayout>-->
+      <Grid BackgroundColor="White" >
         <Grid.RowDefinitions>
-          <RowDefinition Height="25" />
-          <RowDefinition Height="50" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
+          <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition />
-          <ColumnDefinition />
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="White" Grid.ColumnSpan="2">
-          <customUI:AuditHeadingLabel Text="AUDIT DETAILS" TextColor="#0C585C" FontSize="20" FontAttributes="Bold"></customUI:AuditHeadingLabel>
-        </StackLayout>
-        <StackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="White" Grid.ColumnSpan="2">
-          <Grid HorizontalOptions="EndAndExpand">
-            <Button Text="View Report" TextColor="Black" x:Name="btnReport" BorderRadius="5" FontSize="15"  HorizontalOptions="End" BackgroundColor="Transparent"/>
-          </Grid>
+        <customUI:AuditHeadingLabel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="AUDIT DETAILS" TextColor="#0C585C" FontSize="20" FontAttributes="Bold"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="1" Grid.Column="0" Text="Application Name:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="1" Grid.Column="1" Text="ApplicationName" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="1" Grid.Column="2" Text="Case Number:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="1" Grid.Column="3" Text="CaseNumber" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="2" Grid.Column="0" Text="Case Name:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="2" Grid.Column="1" Text="CaseName" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="2" Grid.Column="2" Text="Plot:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="2" Grid.Column="3" Text="Plot" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Text="AUDIT INFORMATION" TextColor="#0C585C" FontSize="20" FontAttributes="Bold"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="4" Grid.Column="0" Text="Name:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Text="UserName" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="5" Grid.Column="0" Text="Status:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Text="Stutus" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="6" Grid.Column="0" Text="Evaluator/Auditor:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Text="Auditor" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="7" Grid.Column="0" Text="On Behalf of builder:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditEntry Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" x:Name="authority" HeightRequest="50"
+                                       Placeholder="Authority"
+                                       HorizontalTextAlignment="Center" TextColor="#0C585C" PlaceholderTextColor="#0C585C"
+                                     ></customUI:AuditEntry>
+        <customUI:AuditHeadingLabel Grid.Row="8" Grid.Column="0" Text="Date:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3" Text="Date" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="9" Grid.Column="0" Text="Audit Number:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3" Text="AuditNumber" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditHeadingLabel Grid.Row="10" Grid.Column="0" Text="Comment/Remarks:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <customUI:AuditEntry Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3" x:Name="comment" HeightRequest="50"
+                                       Placeholder="type comment/remark here"
+                                       HorizontalTextAlignment="Center" TextColor="#0C585C" PlaceholderTextColor="#0C585C"
+                                     ></customUI:AuditEntry>
+        <customUI:AuditHeadingLabel Grid.Row="11" Grid.Column="0" Text="Pictures:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+        <StackLayout Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="3">
+          <Button x:Name="TakePictureButton" Clicked="TakePictureButton_Clicked" BackgroundColor="Black" Text="Take from Camera"></Button>
+          <ListView x:Name="listView">
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>
+                  <Image HeightRequest="240" Source="{Binding path}"></Image>
+                  <customUI:AuditEntry Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3" HeightRequest="50"
+                                       Placeholder="comment" Text="{Binding }"
+                                       HorizontalTextAlignment="Center" TextColor="#0C585C" PlaceholderTextColor="#0C585C"
+                                     ></customUI:AuditEntry>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
         </StackLayout>
       </Grid>
-    
+      <!--
+           
+          </StackLayout>
+        </StackLayout>
+      </StackLayout>-->
+    </Frame>
     <!--<StackLayout Spacing="10" x:Name="layout">
       <Button x:Name="TakePictureButton" Clicked="TakePictureButton_Clicked" Text="Take from Camera"></Button>
       <Image x:Name="Image1" HeightRequest="240" Source="Logo"></Image>
@@ -35,10 +93,12 @@
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="*" BackgroundColor="white"/>
         </Grid.ColumnDefinitions>
-      --><!--<Label Text="Top Left" Grid.Row="0" Grid.Column="0" TextColor="Black"/>--><!--
+      -->
+    <!--<Label Text="Top Left" Grid.Row="0" Grid.Column="0" TextColor="Black"/>-->
+    <!--
       </Grid>-->
-      
-      <!--<Grid BackgroundColor="White" >
+
+    <!--<Grid BackgroundColor="White" >
         <Grid.RowDefinitions>
           <RowDefinition Height="*" />
           <RowDefinition Height="*" />
@@ -51,7 +111,7 @@
         <Label Text="Bottom Left" Grid.Row="1" Grid.Column="0" TextColor="Black"/>
         <Label Text="Bottom Right" Grid.Row="1" Grid.Column="1" TextColor="Black"/>
       </Grid>-->
-      
+
     <!--<TableView>
         <TableRoot>
             <TableSection Title="Test">     

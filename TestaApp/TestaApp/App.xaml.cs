@@ -19,6 +19,7 @@ namespace AuditAppPcl
             if (!IsUserLoggedIn)
             {
                 MainPage = new NavigationPage(new AuditAppPcl.Login(UnityConfig.ILogin));
+                //MainPage = new NavigationPage(new signature());
             }
             else
             {

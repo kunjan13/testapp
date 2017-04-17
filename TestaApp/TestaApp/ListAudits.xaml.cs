@@ -28,6 +28,12 @@ namespace AuditAppPcl
             
         }
 
+        public async void OpenSignaturePage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new signature());
+        }
+
+
         public ListAudits(IAuditServiceManager auditServiceManager)
         {
             this.auditServiceManager = auditServiceManager;
