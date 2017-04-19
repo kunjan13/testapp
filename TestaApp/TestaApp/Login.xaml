@@ -4,48 +4,48 @@
              xmlns:customUI="clr-namespace:AuditAppPcl.CustomUI;assembly=AuditAppPcl"
              xmlns:resources="clr-namespace:AuditAppPcl.Resources;assembly=AuditAppPcl"
              x:Class="AuditAppPcl.Login">
-    <RelativeLayout>
-        <Image Source="backgroundImage"
-                RelativeLayout.WidthConstraint=
+  <RelativeLayout>
+    <Image Source="backgroundImage"
+            RelativeLayout.WidthConstraint=
                   "{ConstraintExpression Type=RelativeToParent, Property=Width}"
-                RelativeLayout.HeightConstraint=
+            RelativeLayout.HeightConstraint=
                   "{ConstraintExpression Type=RelativeToParent, Property=Height}"/>
 
-        <Grid RelativeLayout.WidthConstraint=
+    <Grid RelativeLayout.WidthConstraint=
               "{ConstraintExpression Type=RelativeToParent, Property=Width}"
-            RelativeLayout.HeightConstraint=
+        RelativeLayout.HeightConstraint=
               "{ConstraintExpression Type=RelativeToParent, Property=Height}">
 
-            <StackLayout VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="500" Padding="10,60,10,0">
+      <StackLayout VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="500" Padding="10,60,10,0">
 
-                <Image HorizontalOptions="Center" VerticalOptions="Center" Source="login_logo"></Image>
-                <Label HorizontalOptions="Center" x:Name="messageLabel" Text="{Binding Message}"
-                       TextColor="#0C585C" IsEnabled="False" HeightRequest="16" />
-                
-                <!--<Label FontSize="Medium" Text="Username" />-->
-                <customUI:AuditEntry x:Name="usernameEntry" HeightRequest="50"
-                                     Placeholder="{resources:Translate PlaceholderUsername}"
-                                     HorizontalTextAlignment="Center" TextColor="#0C585C" PlaceholderTextColor="#0C585C"
-                                     Text="{Binding Username}">
-                </customUI:AuditEntry>
-                <!--<Label FontSize="Medium" Text="Password" />-->
-                <customUI:AuditEntry x:Name="passwordEntry" HeightRequest="50" IsPassword="true"
-                                     Placeholder="{resources:Translate PlaceholderPassword}"
-                                     VerticalOptions="Center" HorizontalTextAlignment="Center" TextColor="#0C585C"
-                                     PlaceholderTextColor="#0C585C" Margin="0,10,0,0"
-                                     Text="{Binding Password}">
-                </customUI:AuditEntry>
-                
-                <Button x:Name="loginButton" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding SubmitCommand}"
-                        TextColor="White" WidthRequest="150" HeightRequest="50"  FontSize="Medium"
-                        BackgroundColor="#0C585C" Text="{resources:Translate ButtonLogin}" />
-            </StackLayout>
-        </Grid>
+        <Image HorizontalOptions="Center" VerticalOptions="Center" Source="login_logo"></Image>
+        <Label HorizontalOptions="Center" x:Name="messageLabel" Text="{Binding Message}"
+               TextColor="#0C585C" IsEnabled="False" HeightRequest="16" />
 
-        <StackLayout 
-            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.25}"
-            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}">
-            <Label Text="Copyright @ Onesystems. All rights reserved." Margin="0,90,0,0" FontSize="Medium" TextColor="#ffffffff" LineBreakMode="NoWrap"/>
-        </StackLayout>
-    </RelativeLayout>
+        <!--<Label FontSize="Medium" Text="Username" />-->
+        <customUI:AuditEntry x:Name="usernameEntry" HeightRequest="50"
+                             Placeholder="{resources:Translate PlaceholderUsername}"
+                             HorizontalTextAlignment="Center" TextColor="#0C585C" PlaceholderTextColor="#0C585C"
+                             Text="{Binding Username}">
+        </customUI:AuditEntry>
+        <!--<Label FontSize="Medium" Text="Password" />-->
+        <customUI:AuditEntry x:Name="passwordEntry" HeightRequest="50" IsPassword="true"
+                             Placeholder="{resources:Translate PlaceholderPassword}"
+                             VerticalOptions="Center" HorizontalTextAlignment="Center" TextColor="#0C585C"
+                             PlaceholderTextColor="#0C585C" Margin="0,10,0,0"
+                             Text="{Binding Password}">
+        </customUI:AuditEntry>
+
+        <Button x:Name="loginButton" HorizontalOptions="End" VerticalOptions="Center" Command="{Binding SubmitCommand}"
+                TextColor="White" WidthRequest="150" HeightRequest="50"  FontSize="Medium"
+                BackgroundColor="#0C585C" Text="{resources:Translate ButtonLogin}" />
+      </StackLayout>
+    </Grid>
+
+    <StackLayout
+        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.25}"
+        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.85}">
+      <Label Text="Copyright @ Onesystems. All rights reserved." Margin="0,90,0,0" FontSize="Medium" TextColor="#ffffffff" LineBreakMode="NoWrap"/>
+    </StackLayout>
+  </RelativeLayout>
 </ContentPage>

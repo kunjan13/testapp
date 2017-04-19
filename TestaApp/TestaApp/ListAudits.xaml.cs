@@ -25,7 +25,7 @@ namespace AuditAppPcl
         {
             App.IsUserLoggedIn = true;
             await Navigation.PushAsync(new PerformAudit(UnityConfig.IAuditInformation));
-            
+
         }
 
         public async void OpenSignaturePage(object sender, EventArgs e)

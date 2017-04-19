@@ -11,5 +11,6 @@ namespace AuditAppPcl.Entities
         public byte[] Data { get; set; }
         public string Name { get; set; }
         public string Extention { get; set; }
+        public string StringComment { get; set; }
     }
 }

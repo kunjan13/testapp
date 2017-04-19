@@ -43,8 +43,10 @@
     <Compile Include="Database\AuditAppDatabase.cs" />
     <Compile Include="Database\IDatabaseHelper.cs" />
     <Compile Include="Entities\Attachement.cs" />
+    <Compile Include="Entities\AttachmentViewModel.cs" />
     <Compile Include="Entities\Audit.cs" />
     <Compile Include="Entities\AuditTemp.cs" />
+    <Compile Include="Entities\AuditViewModel.cs" />
     <Compile Include="Entities\Comment.cs" />
     <Compile Include="Entities\Database\Attachement.cs" />
     <Compile Include="Entities\Database\Audit.cs" />
@@ -52,6 +54,7 @@
     <Compile Include="Entities\Database\Case.cs" />
     <Compile Include="Entities\Database\Comment.cs" />
     <Compile Include="Entities\LoginViewModel.cs" />
+    <Compile Include="Entities\MyByteToImageSourceConverter.cs" />
     <Compile Include="Entities\Response\LoginResponse.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="ListAudits.xaml.cs">
