@@ -23,24 +23,24 @@ namespace AuditAppPcl.Manager.Concrete
         {
             var serviceData = await auditServiceRepository.GetAudits();
 
-            var downloadedAuditIds = await auditRepository.GetAuditIds();
+            //var downloadedAuditIds = await auditRepository.GetAuditIds();
 
-            var audits = serviceData.Select(x => new Audit()
-            {
-                IsDownloaded = (downloadedAuditIds.Any(i => i == x.ItemID)),
-                ApplicantName = x.ApplicantName,
-                AuditAppId = x.AuditAppId,
-                CaseUID = x.CaseUID,
-                CaseSubject = x.CaseSubject,
-                IsSynced = x.IsSynced,
-                SyncedDateTime = x.SyncedDateTime,
-                ParentID = x.ParentID,
-                ItemID = x.ItemID,
-                Signature = x.Signature,
-                SignatureIMG = x.SignatureIMG
-            }).ToList();
+            //var audits = serviceData.Select(x => new Audit()
+            //{
+            //    IsDownloaded = (downloadedAuditIds.Any(i => i == x.ItemID)),
+            //    ApplicantName = x.ApplicantName,
+            //    AuditAppId = x.AuditAppId,
+            //    CaseUID = x.CaseUID,
+            //    CaseSubject = x.CaseSubject,
+            //    IsSynced = x.IsSynced,
+            //    SyncedDateTime = x.SyncedDateTime,
+            //    ParentID = x.ParentID,
+            //    ItemID = x.ItemID,
+            //    Signature = x.Signature,
+            //    SignatureIMG = x.SignatureIMG
+            //}).ToList();
 
-            return audits;
+            return serviceData;
         }
 
         public async Task<List<AuditTemp>> GetAuditsTemp()
@@ -51,13 +51,13 @@ namespace AuditAppPcl.Manager.Concrete
 
         public async Task<int> DownloadAudit(string serviceAuditId)
         {
-            var serviceData = await auditServiceRepository.GetAudits();
-            var downloadAudit = serviceData.Where(x => x.ItemID == serviceAuditId).FirstOrDefault();
-            if (downloadAudit != null)
-            {
-                await auditRepository.InsertAudit(downloadAudit);
-                return 1;
-            }
+            //var serviceData = await auditServiceRepository.GetAudits();
+            //var downloadAudit = serviceData.Where(x => x.ItemID == serviceAuditId).FirstOrDefault();
+            //if (downloadAudit != null)
+            //{
+            //    await auditRepository.InsertAudit(downloadAudit);
+            //    return 1;
+            //}
             return -1;
         }
 

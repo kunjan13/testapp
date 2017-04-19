@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Title="Signature"
+             Icon="ic_audit"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:signature="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"
              x:Class="AuditAppPcl.signature">
@@ -8,10 +9,10 @@
         <signature:SignaturePadView x:Name="padView"
                                 HeightRequest="150" WidthRequest="240"
                                 BackgroundColor="White"
-                                CaptionText="Caption This" CaptionTextColor="Black"
-                                ClearText="Clear Me!" ClearTextColor="Red"
-                                PromptText="Prompt Here" PromptTextColor="Red"
-                                SignatureLineColor="Aqua" StrokeColor="Black" StrokeWidth="2" />
+                                CaptionText="Signature" CaptionTextColor="Black"
+                                ClearText="Reset" ClearTextColor="Black"
+                                SignatureLineColor="White" StrokeColor="Black" StrokeWidth="2" />
+        
         <Button Clicked="OnGetStats" Text="Get Signature Stats" />
     </StackLayout>
 </ContentPage>

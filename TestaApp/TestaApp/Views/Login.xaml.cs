@@ -2,7 +2,8 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using AuditAppPcl.Manager.Contracts;
-using AuditAppPcl.Entities;
+using AuditAppPcl.Resources;
+using AuditAppPcl.ViewModels;
 
 namespace AuditAppPcl
 {
@@ -27,6 +28,9 @@ namespace AuditAppPcl
             {
                 vm.SubmitCommand.Execute(null);
             };
+
+            versionlbl.Text = string.Format(AppResources.Version + " {0}", Settings.Settings.AppVersion);
+            copyrightlbl.Text = AppResources.Copyright;
         }
     }
 }

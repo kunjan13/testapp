@@ -5,13 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace AuditAppPcl
+namespace AuditAppPcl.CustomUI
 {
-    public partial class MainPage : ContentPage
+    public class AuditTabbedPage : TabbedPage
     {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+
     }
 }

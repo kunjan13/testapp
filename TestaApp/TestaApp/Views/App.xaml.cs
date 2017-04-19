@@ -18,12 +18,18 @@ namespace AuditAppPcl
             UnityConfig.Configure();
             if (!IsUserLoggedIn)
             {
-                MainPage = new NavigationPage(new AuditAppPcl.Login(UnityConfig.ILogin));
+                MainPage = new AuditAppPcl.Login(UnityConfig.ILogin);
+                //MainPage = new MainPage();
             }
             else
             {
-                MainPage = new NavigationPage(new AuditAppPcl.ListAudits(UnityConfig.IAuditServiceManager));
+                MainPage = new NavigationPage(new AuditAppPcl.ListAudits());
             }
+        }
+
+        public void NavigateToMainPage()
+        {
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
