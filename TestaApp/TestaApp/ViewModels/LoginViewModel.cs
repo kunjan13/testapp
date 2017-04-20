@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace AuditAppPcl.Entities
+namespace AuditAppPcl.ViewModels
 {
     public class LoginViewModel : INotifyPropertyChanged
     {
@@ -24,6 +24,8 @@ namespace AuditAppPcl.Entities
         private string password;
 
         private string message;
+
+        private bool isBusy;
 
         public string Username
         {
@@ -69,26 +71,45 @@ namespace AuditAppPcl.Entities
             }
         }
 
+        public bool IsBusy
+        {
+            get
+            {
+                return isBusy;
+            }
+
+            set
+            {
+                isBusy = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Message"));
+            }
+        }
+
         public LoginViewModel()
         {
             SubmitCommand = new Command(OnSubmit);
         }
 
-        public void OnSubmit()
+        public async void OnSubmit()
         {
             var login = UnityConfig.ILogin;
+            this.IsBusy = true;
             var loginResponse = login.LoginUser(Username, Password);
-            if (loginResponse.Status == Response.LoginResponse.LoginStatus.success)
+            if (loginResponse.Status == Entities.Response.LoginResponse.LoginStatus.success)
             {
                 Message = string.Empty;
                 App.IsUserLoggedIn = true;
-                Navigation.PushAsync(new ListAudits(UnityConfig.IAuditServiceManager));
+                var mainPage = new NavigationPage(new MainPage());
+                NavigationPage.SetHasNavigationBar(mainPage, false);
+                await mainPage.PopAsync();
+                //App.Current.MainPage = new MainPage();
             }
             else
             {
                 Message = loginResponse.ErrorMessage;
                 Password = string.Empty;
             }
+            this.IsBusy = false;
         }
     }
 }

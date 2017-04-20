@@ -71,6 +71,15 @@ namespace AuditAppPcl.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copyright @ Onesystems. All rights reserved..
+        /// </summary>
+        internal static string Copyright {
+            get {
+                return ResourceManager.GetString("Copyright", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username or password is incorrect.
         /// </summary>
         internal static string EmptyUsernamePassword {
@@ -103,6 +112,15 @@ namespace AuditAppPcl.Resources {
         internal static string PlaceholderUsername {
             get {
                 return ResourceManager.GetString("PlaceholderUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        internal static string Version {
+            get {
+                return ResourceManager.GetString("Version", resourceCulture);
             }
         }
     }

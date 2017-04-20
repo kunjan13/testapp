@@ -5,6 +5,8 @@ using System.Linq;
 using Foundation;
 using UIKit;
 using AuditAppPcl;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.iOS;
 
 namespace OneSystemAudit.iOS
 {
@@ -14,6 +16,7 @@ namespace OneSystemAudit.iOS
     [Register("AppDelegate")]
     public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate
     {
+        public static Type dummyt = typeof(SignaturePad.Forms.iOS.SignaturePadRenderer);
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
         // method you should instantiate the window, load the UI into it and then make the window
@@ -23,6 +26,7 @@ namespace OneSystemAudit.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            UITabBar.Appearance.SelectedImageTintColor = UIColor.Yellow;
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

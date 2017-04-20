@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" Title="Audits"
+             Icon="ic_audit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AuditAppPcl.ListAudits">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" BackgroundColor="#E5E3E4">
+            <StackLayout BackgroundColor="#0C585C" HorizontalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,20,0,5">
+                    <Label Text="LIST OF AUDITS" FontAttributes="Bold" FontSize="Large" XAlign="Center" TextColor="#FCA412"></Label>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Spacing="10" Margin="10,0,10,0" Padding="10" Orientation="Horizontal" WidthRequest="700" BackgroundColor="White">
+                <Label Text="Audit Number" VerticalOptions="Center"></Label>
+                <Entry x:Name="srchAuditNumber" WidthRequest="200" VerticalOptions="Center"></Entry>
+                <Label Text="Status" VerticalOptions="Center"></Label>
+                <Picker WidthRequest="250" VerticalOptions="Center">
+                    <Picker.Items>
+                        <x:String>Apple</x:String>
+                        <x:String>Banana</x:String>
+                        <x:String>Cherry</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Image x:Name="searchicon" Source="icon_search"></Image>
+            </StackLayout>
+            <StackLayout BackgroundColor="White" Orientation="Horizontal" Padding="5" Spacing="5" Margin="10,0,10,0">
+                <Image x:Name="titleicon" Source="icon_audit"></Image>
+                <Label x:Name="titlelbl" VerticalOptions="Center" Text="AUDIT LIST" FontAttributes="Bold" FontSize="Medium"
+                       TextColor="#0C585C"></Label>
+            </StackLayout>
+            <StackLayout BackgroundColor="White" Orientation="Vertical" Margin="10,0,10,0">
+                <Grid BackgroundColor="White" Padding="5">
+                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Text="No."></Label>
+                    <Label Grid.Column="1" Text="Applicant Name"></Label>
+                    <Label Grid.Column="2" Text="Status"></Label>
+                    <Label Grid.Column="3" Text="Download/Sync"></Label>
+                    <Label Grid.Column="4" Text="View"></Label>
+                </Grid>
+                <ListView x:Name="listView" Margin="10,0,10,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid HorizontalOptions="Center">
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Column="0" Text="{Binding ItemID}"></Label>
+                                    <Label Grid.Column="1" Text="{Binding ApplicantName}"></Label>
+                                    <Label Grid.Column="2" Text="{Binding InspectionStatus}"></Label>
+                                    <StackLayout Orientation="Horizontal" Grid.Column="3">
+                                        <Image Source="icon_download"></Image>
+                                        <Image Source="icon_sync"></Image>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Grid.Column="4">
+                                        <Image Source="icon_view"></Image>
+                                        <Image Source="icon_audit"></Image>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

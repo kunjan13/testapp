@@ -36,18 +36,18 @@ namespace AuditAppPcl
 
         public ListAudits(IAuditServiceManager auditServiceManager)
         {
-            this.auditServiceManager = auditServiceManager;
+            this.auditServiceManager = UnityConfig.IAuditServiceManager;
             InitializeComponent();
 
-            listView.ItemTemplate = new DataTemplate(typeof(TextCell)); // has context actions defined
-            listView.ItemTemplate.SetBinding(TextCell.TextProperty, "userId");
-            listView.ItemTemplate.SetBinding(TextCell.DetailProperty, "body");
+            //listView.ItemTemplate = new DataTemplate(typeof(TextCell)); // has context actions defined
+            //listView.ItemTemplate.SetBinding(TextCell.TextProperty, "userId");
+            //listView.ItemTemplate.SetBinding(TextCell.DetailProperty, "body");
             listView.ItemsSource = GetAudits();
         }
 
-        private List<AuditTemp> GetAudits()
+        private List<Audit> GetAudits()
         {
-            return Task.Run(async () => await auditServiceManager.GetAuditsTemp()).Result;
+            return Task.Run(async () => await auditServiceManager.GetAudits()).Result;
         }
     }
 }
