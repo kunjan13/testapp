@@ -14,42 +14,154 @@ namespace AuditAppPcl.Database
 
         public AuditAppDatabase(string databasePath)
         {
-            database = new SQLiteAsyncConnection(databasePath);
-            database.CreateTableAsync<Comment>().Wait();
-            database.CreateTableAsync<Attachement>().Wait();
-            database.CreateTableAsync<Audit>().Wait();
+            try
+            {
+                database = new SQLiteAsyncConnection(databasePath);
+                database.CreateTableAsync<Audit>().Wait();
+                database.CreateTableAsync<Attachement>().Wait();
+                database.CreateTableAsync<Case>().Wait();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public Task<List<Audit>> GetAudits()
         {
-            return database.Table<Audit>().ToListAsync();
+            try
+            {
+                var audits = database.Table<Audit>().ToListAsync();
+                foreach (var audit in audits.Result)
+                {
+                    var attachments = database.QueryAsync<Attachement>("select * from Attachement where AuditAppId = ?", audit.AuditAppId).Result;
+                    foreach (var attachment in attachments)
+                    {
+                        audit.Attachements = new List<Attachement>();
+                        audit.Attachements.Add(attachment);
+                    }
+                }
+
+                return audits;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public Task<List<Case>> GetCases()
+        {
+            try
+            {
+                return database.Table<Case>().ToListAsync();
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
         }
 
         public Task<Audit> GetAuditById(int id)
         {
-            return database.Table<Audit>().Where(i => i.AuditAppId == id).FirstOrDefaultAsync();
+            try
+            {
+                var audit = database.Table<Audit>().Where(i => i.AuditAppId == id).FirstOrDefaultAsync();
+                var attachments = database.Table<Attachement>().Where(i => i.AuditAppId == id).ToListAsync().Result;
+                audit.Result.Attachements = new List<Attachement>();
+                audit.Result.Attachements.AddRange(attachments);
+                return audit;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
-        public Task<List<Audit>> GetAuditIds()
+        public async Task<List<Audit>> GetAuditIds()
         {
-            return database.QueryAsync<Audit>("SELECT ItemID FROM [Audit]");
+            Audit ad = new Audit();
+            var res = await database.DeleteAsync(ad);
+            return null;// database.QueryAsync<Audit>("SELECT ItemID FROM [Audit]");
         }
 
         public async Task InsertAudit(Audit audit)
         {
-            await database.RunInTransactionAsync(trans => {
-                
+            await database.RunInTransactionAsync(trans =>
+            {
+
+                trans.Insert(audit);
                 foreach (var attachment in audit.Attachements)
                 {
                     trans.Insert(attachment);
                 }
-                foreach (var comment in audit.Comments)
-                {
-                    trans.Insert(comment);
-                }
-                trans.Insert(audit);
             });
         }
 
+        public async Task InsertAudits(List<Audit> audits)
+        {
+            await database.RunInTransactionAsync(trans =>
+            {
+                //trans.InsertAll(audits);
+                foreach (var audit in audits)
+                {
+                    trans.Insert(audit);
+
+                    foreach (var attachment in audit.Attachements)
+                    {
+                        attachment.AuditAppId = audit.AuditAppId;
+                        trans.Insert(attachment);
+                    }
+                }
+
+            });
+        }
+
+        public async Task<bool> UpdateAudit(Audit audit)
+        {
+            try
+            {
+                bool returnValue = false;
+                await database.RunInTransactionAsync(trans =>
+                {
+                    trans.Update(audit);
+                    //var result;
+                    trans.Execute("delete from Attachement where AuditAppId = ?", audit.AuditAppId);
+
+                    foreach (var attachment in audit.Attachements)
+                    {
+                        trans.Insert(attachment);
+                    }
+                    returnValue = true;
+                });
+                return returnValue;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task<bool> DeleteAudit(Audit audit)
+        {
+            try
+            {
+                bool returnValue = false;
+                await database.RunInTransactionAsync(trans =>
+                {
+                    trans.Delete(audit);
+                    foreach(var attachment in audit.Attachements)
+                    {
+                        trans.Delete(attachment);
+                    }
+                    returnValue = true;
+                });
+                return returnValue;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

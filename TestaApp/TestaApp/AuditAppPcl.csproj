@@ -37,6 +37,8 @@
   <ItemGroup>
     <Compile Include="CustomUI\AuditTabbedPage.cs" />
     <Compile Include="Entities\Response\GetAuditsforUserResponse.cs" />
+    <Compile Include="Repository\Concrete\CaseRepository.cs" />
+    <Compile Include="Repository\Contracts\ICaseRepository.cs" />
     <Compile Include="Views\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -74,7 +76,7 @@
     <Compile Include="Manager\Contracts\IAuditInformation.cs" />
     <Compile Include="Manager\Contracts\IAuditServiceManager.cs" />
     <Compile Include="Manager\Contracts\ILogin.cs" />
-    <Compile Include="PerformAudit.xaml.cs">
+    <Compile Include="Views\PerformAudit.xaml.cs">
       <DependentUpon>PerformAudit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,9 +97,6 @@
     <Compile Include="RestClient\IRestClient.cs" />
     <Compile Include="RestClient\RestClient.cs" />
     <Compile Include="Settings\Settings.cs" />
-    <Compile Include="Views\signature.xaml.cs">
-      <DependentUpon>signature.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UnityConfig.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -219,13 +218,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="PerformAudit.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="signature.xaml">
+    <EmbeddedResource Include="Views\PerformAudit.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

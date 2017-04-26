@@ -48,7 +48,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Grid HorizontalOptions="Center">
+                                <Grid Padding="0,5,5,5">
                                     <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
                                     <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
                                     <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
@@ -66,7 +66,12 @@
                                         <Image Source="icon_sync"></Image>
                                     </StackLayout>
                                     <StackLayout Orientation="Horizontal" Grid.Column="4">
-                                        <Image Source="icon_view"></Image>
+                                        <Image Source="icon_view">
+                                          <Image.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                    Tapped="View"  />
+                                          </Image.GestureRecognizers>
+                                        </Image>
                                         <Image Source="icon_audit"></Image>
                                     </StackLayout>
                                 </Grid>

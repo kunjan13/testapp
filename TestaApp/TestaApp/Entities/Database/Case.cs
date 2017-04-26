@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace AuditAppPcl.Entities.Database
         public string CaseUID { get; set; } //[UID]
         public string BuildingLandAddress { get; set; }//[Land_Subject]
         public string BuildingNumber { get; set; } //[LandNr]
+        [OneToMany]
         public List<Audit> Audits { get; set; }
     }
 }

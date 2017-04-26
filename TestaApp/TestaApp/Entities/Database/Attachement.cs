@@ -14,8 +14,10 @@ namespace AuditAppPcl.Entities.Database
         public int AuditAppAttachementId { get; set; }
        
         [ForeignKey(typeof(Audit))]
-        public string ItemID { get; set; }
-        public List<Comment> Comments { get; set; }
+        public int AuditAppId { get; set; }
+        //public string ItemID { get; set; }
+        public string Comment { get; set; } 
+        //public List<Comment> Comments { get; set; }
         public byte[] Data { get; set; }
         public string Name { get; set; }
         public string Extention { get; set; }

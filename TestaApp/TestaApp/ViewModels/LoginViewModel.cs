@@ -98,10 +98,11 @@ namespace AuditAppPcl.ViewModels
             if (loginResponse.Status == Entities.Response.LoginResponse.LoginStatus.success)
             {
                 Message = string.Empty;
-                App.IsUserLoggedIn = true;
-                var mainPage = new NavigationPage(new MainPage());
-                NavigationPage.SetHasNavigationBar(mainPage, false);
-                await mainPage.PopAsync();
+                App.IsUserLoggedIn = true;                
+                await Navigation.PushModalAsync(new MainPage());
+                //var mainPage = new NavigationPage(new MainPage());
+                //NavigationPage.SetHasNavigationBar(mainPage, false);
+                //await mainPage.PopAsync();
                 //App.Current.MainPage = new MainPage();
             }
             else

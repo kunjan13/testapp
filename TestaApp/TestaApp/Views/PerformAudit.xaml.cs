@@ -23,9 +23,9 @@ namespace AuditAppPcl
         public event EventHandler CanExecuteChanged;
 
         //public List<AttachmentViewModel> attView = new List<AttachmentViewModel>();
-        public PerformAudit(IAuditInformation auditInformation)
+        public PerformAudit()
         {
-            this.auditInformation = auditInformation;
+            this.auditInformation = UnityConfig.IAuditInformation;
             //this.BindingContext = vm;
             //listView.ItemTemplate = new DataTemplate(typeof(ImageCell)); // has context actions defined
             //listView.ItemTemplate.SetBinding(ImageCell.ImageSourceProperty, "path");

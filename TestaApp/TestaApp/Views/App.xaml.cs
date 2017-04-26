@@ -1,4 +1,6 @@
-﻿using AuditAppPcl.Manager.Contracts;
+﻿using AuditAppPcl.Entities.Database;
+using AuditAppPcl.Manager.Contracts;
+using AuditAppPcl.Repository.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,7 @@ namespace AuditAppPcl
     public partial class App : Application
     {
         public static bool IsUserLoggedIn { get; set; }
+        
 
         public App()
         {
@@ -18,6 +21,8 @@ namespace AuditAppPcl
             UnityConfig.Configure();
             if (!IsUserLoggedIn)
             {
+                
+                
                 MainPage = new AuditAppPcl.Login(UnityConfig.ILogin);
                 //MainPage = new MainPage();
             }
@@ -26,6 +31,8 @@ namespace AuditAppPcl
                 MainPage = new NavigationPage(new AuditAppPcl.ListAudits());
             }
         }
+
+       
 
         public void NavigateToMainPage()
         {
@@ -51,5 +58,7 @@ namespace AuditAppPcl
         {
             // Handle when your app resumes
         }
+
+        
     }
 }

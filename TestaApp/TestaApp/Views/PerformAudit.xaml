@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             Icon="ic_audit"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customUI="clr-namespace:AuditAppPcl.CustomUI;assembly=AuditAppPcl"
+             x:Class="AuditAppPcl.PerformAudit">
+  <ContentPage.Content>
+    <ScrollView>
+      <StackLayout Orientation="Vertical" BackgroundColor="#E5E3E4">
+
+        <StackLayout BackgroundColor="#0C585C" HorizontalOptions="FillAndExpand">
+          <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,20,0,5">
+            <Label Text="PERFORM AUDIT" FontAttributes="Bold" FontSize="Large" XAlign="Center" TextColor="#FCA412"></Label>
+          </StackLayout>
+        </StackLayout>
+        <StackLayout BackgroundColor="White" Orientation="Horizontal" Padding="5" Spacing="5" Margin="10,0,10,0">
+          <Image Source="icon_audit"></Image>
+          <Label VerticalOptions="Start" Text="AUDIT DETAILS" FontAttributes="Bold" FontSize="Medium"
+                 TextColor="#0C585C"></Label>
+        </StackLayout>
+        <StackLayout BackgroundColor="White" Orientation="Vertical" Margin="10,0,10,0">
+          <Grid BackgroundColor="White" >
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <customUI:AuditHeadingLabel Grid.Row="1" Grid.Column="0" Text="Application Name:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="1" Grid.Column="1" Text="{Binding ApplicantName}" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="1" Grid.Column="2" Text="Case Number:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="1" Grid.Column="3" Text="{Binding CaseUID}" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="2" Grid.Column="0" Text="Case Name:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="2" Grid.Column="1" Text="{Binding CaseSubject}" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="2" Grid.Column="2" Text="Plot:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="2" Grid.Column="3" Text="{Binding Plot}" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+          </Grid>
+        </StackLayout>
+        <StackLayout BackgroundColor="White" Orientation="Horizontal" Padding="5" Spacing="5" Margin="10,0,10,0">
+          <Image Source="icon_audit"></Image>
+          <Label VerticalOptions="Start" Text="AUDIT INFORMATION" FontAttributes="Bold" FontSize="Medium"
+                 TextColor="#0C585C"></Label>
+        </StackLayout>
+        <StackLayout BackgroundColor="White" Orientation="Vertical" Margin="10,0,10,0">
+          <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="*"/>
+              <!--<ColumnDefinition Width="Auto"/>
+              <ColumnDefinition Width="*"/>-->
+            </Grid.ColumnDefinitions>
+            <customUI:AuditHeadingLabel Grid.Row="0" Grid.Column="0" Text="Name:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="0" Grid.Column="1" Text="{Binding UserName}" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="1" Grid.Column="0" Text="Status:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="1" Grid.Column="1" Text="{Binding InspectionStatus}" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="2" Grid.Column="0" Text="Evaluator/Auditor:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="2" Grid.Column="1" Text="{Binding Inspector}" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="3" Grid.Column="0" Text="On Behalf of builder:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditEntry Grid.Row="3" Grid.Column="1" x:Name="authority" HeightRequest="50"
+                                           Placeholder="Authority" Text="{Binding BuildingOfficer}"
+                                           HorizontalTextAlignment="Start" TextColor="#0C585C" PlaceholderTextColor="#0C585C"
+                                     ></customUI:AuditEntry>
+            <customUI:AuditHeadingLabel Grid.Row="4" Grid.Column="0" Text="Date:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="4" Grid.Column="1" Text="{Binding InspectionDate}" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="5" Grid.Column="0" Text="Audit Number:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="5" Grid.Column="1" Text="{Binding AuditAppId}" TextColor="#A4BCBC" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditHeadingLabel Grid.Row="6" Grid.Column="0" Text="Comment/Remarks:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditEntry Grid.Row="6" Grid.Column="1" x:Name="comment" HeightRequest="50"
+                                           Placeholder="type comment/remark here" Text="{Binding Comment}"
+                                           HorizontalTextAlignment="Start" TextColor="#0C585C" PlaceholderTextColor="#0C585C"
+                                     ></customUI:AuditEntry>
+            <customUI:AuditHeadingLabel Grid.Row="7" Grid.Column="0" Text="Pictures:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <StackLayout x:Name="layout" Grid.Row="7" Grid.Column="1">
+              <Button x:Name="takePicture" HorizontalOptions="End" VerticalOptions="Center"
+                    TextColor="White" WidthRequest="150" HeightRequest="50"  FontSize="Medium"
+                    BackgroundColor="#0C585C" Text="Take from Camera" Clicked="TakePictureButton_Clicked" />
+              <Button x:Name="uploadPicture" HorizontalOptions="End" VerticalOptions="Center"
+                    TextColor="White" WidthRequest="150" HeightRequest="50"  FontSize="Medium"
+                    BackgroundColor="#0C585C" Text="Select from Gallery" Clicked="TakePictureGalleryButton_Clicked" />
+            </StackLayout>
+            <customUI:AuditHeadingLabel Grid.Row="8" Grid.Column="0" Text="Signature:" TextColor="#005D60" FontSize="20"></customUI:AuditHeadingLabel>
+            <customUI:AuditEntry Grid.Row="8" Grid.Column="1" x:Name="signature" HeightRequest="50"
+                                           Placeholder="Signature space" Text=""
+                                           HorizontalTextAlignment="Start" TextColor="#0C585C" PlaceholderTextColor="#0C585C"
+                                     ></customUI:AuditEntry>
+            <StackLayout Grid.Row="9" Grid.Column="1">
+              <Button x:Name="save" HorizontalOptions="Start" VerticalOptions="Center"
+                    TextColor="White" WidthRequest="150" HeightRequest="50"  FontSize="Medium"
+                    BackgroundColor="#0C585C" Text="Save" Clicked="TakePictureButton_Clicked" />
+              <Button x:Name="cancel" HorizontalOptions="Start" VerticalOptions="Center"
+                    TextColor="White" WidthRequest="150" HeightRequest="50"  FontSize="Medium"
+                    BackgroundColor="#0C585C" Text="Cancel" Clicked="TakePictureGalleryButton_Clicked" />
+              <Button x:Name="saveclose" HorizontalOptions="Start" VerticalOptions="Center"
+                    TextColor="White" WidthRequest="150" HeightRequest="50"  FontSize="Medium"
+                    BackgroundColor="#0C585C" Text="SaveAndClose" Clicked="TakePictureGalleryButton_Clicked" />
+            </StackLayout>
+          </Grid>
+        </StackLayout>
+      </StackLayout>
+    </ScrollView>
+  </ContentPage.Content>
+</ContentPage>

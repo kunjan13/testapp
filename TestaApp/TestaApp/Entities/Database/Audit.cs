@@ -15,6 +15,8 @@ namespace AuditAppPcl.Entities.Database
         public int AuditAppId { get; set; }
 
         public string ItemID { get; set; } //[ItemID]
+        [ForeignKey(typeof(Case))]
+        public int AuditAppCaseId { get; set; }
         public string ParentID { get; set; } //[ItemID] of case
         public string ApplicantName { get; set; } //[Company]
         public string CaseSubject { get; set; } //[CaseSubject]
@@ -29,17 +31,19 @@ namespace AuditAppPcl.Entities.Database
         public DateTime InspectionDate { get; set; } //[Date]
         public string InspectionNumber { get; set; } //[Number]: Number
         public string Comment { get; set; }//[Comment]
-        public List<Comment> Comments { get; set; }
 
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        [OneToMany]
         public List<Attachement> Attachements { get; set; } //max 30 //img to attachements, comments to comments table
         public string Signature { get; set; }//comment table
         public byte[] SignatureIMG { get; set; } //Attachemnts
+        [ManyToOne]
+        public Case Case { get; set; }
 
 
         //App fields
         private bool isSynced = false;
         public bool IsSynced { get { return isSynced; } set { isSynced = value; } }
         public DateTime SyncedDateTime { get; set; }
+        public string UserName { get; set; }
     }
 }

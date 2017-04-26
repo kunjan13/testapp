@@ -28,7 +28,7 @@ namespace AuditAppPcl.Repository.Concrete
 
         public AuditRepository()
         {
-
+            database = Database;
         }
 
         public async Task<List<Audit>> GetAudits()
@@ -50,6 +50,21 @@ namespace AuditAppPcl.Repository.Concrete
         public async Task InsertAudit(Audit audit)
         {
             await database.InsertAudit(audit);
+        }
+
+        public async Task InsertAudits(List<Audit> audits)
+        {
+            await database.InsertAudits(audits);
+        }
+
+        public async Task<bool> UpdateAudit(Audit audit)
+        {
+            return await database.UpdateAudit(audit);
+        }
+
+        public async Task<bool> DeleteAudit(Audit audit)
+        {
+            return await database.DeleteAudit(audit);
         }
     }
 }
