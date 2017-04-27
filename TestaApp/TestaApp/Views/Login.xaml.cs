@@ -14,17 +14,18 @@ namespace AuditAppPcl
     public partial class Login : ContentPage
     {
         public ILogin login;
+        static string mytownName = "";
         AuditRepository auditRepository;
-        public Login(ILogin login)
+        public Login(ILogin login,string townName)
         {
             auditRepository = new AuditRepository();
-            InsertInDB();
+            //InsertInDB();
             this.login = login;
             var vm = new LoginViewModel();
             vm.Navigation = Navigation;
             this.BindingContext = vm;
             InitializeComponent();
-
+            mytownName = townName;
             usernameEntry.Completed += (object sender, EventArgs e) =>
             {
                 passwordEntry.Focus();
@@ -34,10 +35,16 @@ namespace AuditAppPcl
             {
                 vm.SubmitCommand.Execute(null);
             };
-
+            
             versionlbl.Text = string.Format(AppResources.Version + " {0}", Settings.Settings.AppVersion);
             copyrightlbl.Text = AppResources.Copyright;
+            townNameLabel.Text = townName;
         }
+
+        //public Login(ILogin login,string townName)
+        //{
+        //    Login(ILogin);
+        //}
         public async void InsertInDB()
         {
             var audit = GetAuditToUpdate();

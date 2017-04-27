@@ -22,6 +22,7 @@
                 <Label HorizontalOptions="Center" x:Name="messageLabel" Text="{Binding Message}"
                        TextColor="#0C585C" IsEnabled="False" HeightRequest="16" />
 
+                <customUI:AuditHeadingLabel x:Name="townNameLabel"  Text="" TextColor="#005D60" FontSize="20" HorizontalTextAlignment="Center"></customUI:AuditHeadingLabel>
                 <!--<Label FontSize="Medium" Text="Username" />-->
                 <customUI:AuditEntry x:Name="usernameEntry" HeightRequest="50"
                                      Placeholder="{resources:Translate PlaceholderUsername}"

@@ -21,9 +21,8 @@ namespace AuditAppPcl
             UnityConfig.Configure();
             if (!IsUserLoggedIn)
             {
-                
-                
-                MainPage = new AuditAppPcl.Login(UnityConfig.ILogin);
+                MainPage = new AuditAppPcl.Pin();
+                //MainPage = new AuditAppPcl.Login(UnityConfig.ILogin);
                 //MainPage = new MainPage();
             }
             else

@@ -80,11 +80,11 @@ namespace AuditAppPcl
             //        InspectionStatus = "Status1"
             //    }
             //};
-            //return Task.Run(async () => await auditRepository.GetAudits()).Result;
-            var result = Task.Run(async () => await auditRepository.GetAuditById(1)).Result;
-            var listOfAudit = new List<Entities.Database.Audit>();
-            listOfAudit.Add(result);
-            return listOfAudit;
+            return Task.Run(async () => await auditRepository.GetAudits()).Result;
+            //var result = Task.Run(async () => await auditRepository.GetAuditById(1)).Result;
+            //var listOfAudit = new List<Entities.Database.Audit>();
+            //listOfAudit.Add(result);
+            //return listOfAudit;
         }
     }
 }
