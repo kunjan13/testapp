@@ -50,6 +50,34 @@ namespace AuditAppPcl.Database
             }
         }
 
+        public Task<Case> GetCaseById(int caseId)
+        {
+            try
+            {
+                var selectedCase = database.Table<Case>().Where(i => i.AuditAppCaseId == caseId).FirstOrDefaultAsync();
+                var audits = database.Table<Audit>().Where(i => i.AuditAppCaseId == caseId).ToListAsync().Result;
+                selectedCase.Result.Audits = new List<Audit>();
+                selectedCase.Result.Audits.AddRange(audits);
+                return selectedCase;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public  Task<List<Audit>> GetMyAudits(string userName)
+        {
+            try
+            {
+                return  database.Table<Audit>().Where(i => i.UserName == userName).ToListAsync();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
         public Task<List<Case>> GetCases()
         {
             try

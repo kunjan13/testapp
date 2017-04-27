@@ -35,5 +35,10 @@ namespace AuditAppPcl.Repository.Concrete
         {
             return await database.GetCases();
         }
+
+        public async Task<Case> GetCaseById(int caseId)
+        {
+            return await database.GetCaseById(caseId);
+        }
     }
 }

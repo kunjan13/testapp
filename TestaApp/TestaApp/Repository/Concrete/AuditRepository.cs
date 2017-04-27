@@ -66,5 +66,10 @@ namespace AuditAppPcl.Repository.Concrete
         {
             return await database.DeleteAudit(audit);
         }
+
+        public async Task<List<Audit>> GetMyAudits(string userName)
+        {
+            return await database.GetMyAudits(userName);
+        }
     }
 }

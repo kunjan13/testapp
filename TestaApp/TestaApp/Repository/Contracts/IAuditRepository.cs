@@ -22,5 +22,7 @@ namespace AuditAppPcl.Repository.Contracts
         Task<bool> UpdateAudit(Audit audits);
 
         Task<bool> DeleteAudit(Audit audits);
+
+        Task<List<Audit>> GetMyAudits(string userName);
     }
 }
