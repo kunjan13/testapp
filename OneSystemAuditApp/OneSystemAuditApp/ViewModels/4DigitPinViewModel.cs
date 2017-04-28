@@ -131,6 +131,8 @@ namespace AuditAppPcl.ViewModels
             {
                 Message = string.Empty;
                 IsError = false;
+                
+                Settings.Settings.Pin = Pin;
                 await Navigation.PushModalAsync(new Login());
             }
             else

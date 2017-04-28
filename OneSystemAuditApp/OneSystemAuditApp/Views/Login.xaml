@@ -23,6 +23,7 @@
                        TextColor="#0C585C" IsEnabled="False" HeightRequest="16" />
 
                 <!--<Label FontSize="Medium" Text="Username" />-->
+                <customUI:AuditHeadingLabel  Text="{Binding TownName}" TextColor="#005D60" FontSize="20" HorizontalTextAlignment="Start"></customUI:AuditHeadingLabel>
                 <customUI:AuditEntry x:Name="usernameEntry" HeightRequest="50"
                                      Placeholder="{resources:Translate PlaceholderUsername}"
                                      HorizontalTextAlignment="Center" TextColor="#0C585C" PlaceholderTextColor="#0C585C"

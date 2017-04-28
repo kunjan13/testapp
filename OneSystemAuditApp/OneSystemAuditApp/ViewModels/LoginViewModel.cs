@@ -20,6 +20,8 @@ namespace AuditAppPcl.ViewModels
 
         private string message;
 
+        private string townName;
+
 
         public string Username
         {
@@ -60,6 +62,15 @@ namespace AuditAppPcl.ViewModels
             {
                 message = value;
                 OnPropertyChanged("Message");
+            }
+        }
+
+        public string TownName
+        {
+            get
+            {
+                townName = App.TownName;
+                return townName;
             }
         }
 

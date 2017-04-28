@@ -25,7 +25,13 @@ namespace AuditAppPcl.Manager.Concrete
             else
             {
                 getServicePathResponce.Sucsess = true;
-                App.TownName = getServicePathResponce.Company;
+                if (getServicePathResponce.Company == null || getServicePathResponce.Company == string.Empty || getServicePathResponce.Company == "")
+                {
+                    App.TownName = "Test Company";
+                }else
+                {
+                    App.TownName = getServicePathResponce.Company;
+                }
                 Settings.Settings.UserServicePath = getServicePathResponce.ServicePath;
             }
             return getServicePathResponce;

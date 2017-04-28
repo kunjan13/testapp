@@ -30,6 +30,9 @@ namespace AuditAppPcl.Settings
 
         const string LoginTokenKey = "logintoken";
         private static readonly string DefaultLoginToken = string.Empty;
+
+        const string PinKey = "pin";
+        private static readonly string DefaultPin = string.Empty;
         #endregion
 
 
@@ -62,6 +65,12 @@ namespace AuditAppPcl.Settings
         {
             get { return AppSettings.GetValueOrDefault<string>(LoginTokenKey, DefaultLoginToken); }
             set { AppSettings.AddOrUpdateValue<string>(LoginTokenKey, value); }
+        }
+
+        public static string Pin
+        {
+            get { return AppSettings.GetValueOrDefault<string>(PinKey, DefaultPin);}
+            set { AppSettings.AddOrUpdateValue<string>(PinKey, value); }
         }
     }
 }
