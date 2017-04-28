@@ -98,6 +98,51 @@ namespace AuditAppPcl.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Active Audits.
+        /// </summary>
+        internal static string Menu_ActiveAudits {
+            get {
+                return ResourceManager.GetString("Menu_ActiveAudits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cases.
+        /// </summary>
+        internal static string Menu_Cases {
+            get {
+                return ResourceManager.GetString("Menu_Cases", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log Out/Clean.
+        /// </summary>
+        internal static string Menu_Logout_Clean {
+            get {
+                return ResourceManager.GetString("Menu_Logout_Clean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My Audits.
+        /// </summary>
+        internal static string Menu_MyAudits {
+            get {
+                return ResourceManager.GetString("Menu_MyAudits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string Menu_Settings {
+            get {
+                return ResourceManager.GetString("Menu_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         internal static string PlaceholderPassword {

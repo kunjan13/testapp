@@ -1,10 +1,8 @@
 ﻿using AuditAppPcl.Entities;
-using System;
+using AuditAppPcl.Resources;
+using AuditAppPcl.Views;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,34 +12,39 @@ namespace AuditAppPcl
     public partial class MasterPage : ContentPage
     {
         public ListView MenuListView { get { return menuListView; } }
+        private List<MenuItems> menuItems = new List<MenuItems>();
+        public List<MenuItems> MenuItemsList { get { return menuItems; } }
+
         public MasterPage()
         {
+            this.BindingContext = new ObservableCollection<MenuItems>();
             InitializeComponent();
-            var menuItems = new List<MenuItems>();
+            menuItems = new List<MenuItems>();
             menuItems.Add(new MenuItems
             {
-                Name = "My Audits",
+                Name = AppResources.Menu_MyAudits,
+                IsSelected = true,
                 TargetType = typeof(ListAudits)
             });
             menuItems.Add(new MenuItems
             {
-                Name = "Active Audits",
-                TargetType = typeof(ListAudits)
+                Name = AppResources.Menu_ActiveAudits,
+                TargetType = typeof(ActiveAudits)
             });
             menuItems.Add(new MenuItems
             {
-                Name = "Cases",
-                TargetType = typeof(ListAudits)
+                Name = AppResources.Menu_Cases,
+                TargetType = typeof(Cases)
             });
             menuItems.Add(new MenuItems
             {
-                Name = "Settings",
-                TargetType = typeof(ListAudits)
+                Name = AppResources.Menu_Settings,
+                TargetType = typeof(Views.Settings)
             });
             menuItems.Add(new MenuItems
             {
-                Name = "Log Out/Clean",
-                TargetType = typeof(ListAudits)
+                Name = AppResources.Menu_Logout_Clean,
+                TargetType = typeof(Logout)
             });
 
             menuListView.ItemsSource = menuItems;

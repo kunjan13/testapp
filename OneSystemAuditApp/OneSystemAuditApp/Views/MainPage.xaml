@@ -8,7 +8,7 @@
         <local:MasterPage x:Name="masterPage" />
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <NavigationPage>
+        <NavigationPage BarBackgroundColor="#0C585C" BarTextColor="#F3A116">
             <x:Arguments>
                 <local:ListAudits></local:ListAudits>
             </x:Arguments>

@@ -129,6 +129,21 @@
   <data name="InvalidCredentials" xml:space="preserve">
     <value>Login failed with invalid credentials</value>
   </data>
+  <data name="Menu_ActiveAudits" xml:space="preserve">
+    <value>Active Audits</value>
+  </data>
+  <data name="Menu_Cases" xml:space="preserve">
+    <value>Cases</value>
+  </data>
+  <data name="Menu_Logout_Clean" xml:space="preserve">
+    <value>Log Out/Clean</value>
+  </data>
+  <data name="Menu_MyAudits" xml:space="preserve">
+    <value>My Audits</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="PlaceholderPassword" xml:space="preserve">
     <value>Password</value>
   </data>

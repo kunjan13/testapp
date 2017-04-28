@@ -3,14 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Title="Menu"
              Icon="ic_menu_36pt"
-             x:Class="AuditAppPcl.MasterPage" Padding="10,40,10,10">
+             x:Class="AuditAppPcl.MasterPage" Padding="0,40,0,0" BackgroundColor="#0C585C">
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="menuListView">
+        <StackLayout BackgroundColor="#0C585C">
+            <Image Source="login_logo" HorizontalOptions="Center" WidthRequest="50" HeightRequest="50" BackgroundColor="#0C585C"></Image>
+            <ListView x:Name="menuListView" BackgroundColor="#0C585C" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding Name}"></Label>
+                            <StackLayout VerticalOptions="Center">
+                                <Label HorizontalOptions="Center" TextColor="{Binding BackgroundColor}" VerticalOptions="Center" Text="{Binding Name}">
+                                </Label>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

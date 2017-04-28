@@ -1,6 +1,5 @@
 ﻿using AuditAppPcl.Entities;
 using System;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,6 +20,12 @@ namespace AuditAppPcl.Views
             var item = e.SelectedItem as MenuItems;
             if (item != null)
             {
+                masterPage.MenuListView.SelectedItem = null;
+                foreach (var menuitem in masterPage.MenuItemsList)
+                {
+                    menuitem.IsSelected = false;
+                }
+                item.IsSelected = true;
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
                 IsPresented = false;
             }

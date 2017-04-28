@@ -36,9 +36,11 @@ namespace AuditAppPcl.Entities.Database
         public string Signature { get; set; }//comment table
         public byte[] SignatureIMG { get; set; } //Attachemnts
 
+        public bool HasAttachment { get; set; }
 
-        //App fields
-        private bool isSynced = false;
+
+    //App fields
+    private bool isSynced = false;
         public bool IsSynced { get { return isSynced; } set { isSynced = value; } }
         public DateTime SyncedDateTime { get; set; }
     }
