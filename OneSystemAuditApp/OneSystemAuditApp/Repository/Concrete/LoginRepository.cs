@@ -20,7 +20,7 @@ namespace AuditAppPcl.Repository.Concrete
             var servicePathRequest = new GetServicePathRequest();
             servicePathRequest.CompanyPin = companyPin;
 
-            var data = Task.Run(async () => await restClient.PostAsync<GetServicePathRequest, GetServicePathResponse>("", servicePathRequest)).Result;
+            var data = Task.Run(async () => await restClient.PostAsync<GetServicePathRequest, GetServicePathResponse>("GetServicePath", servicePathRequest)).Result;
             return data;
         }
 

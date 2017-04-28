@@ -20,10 +20,10 @@ namespace AuditAppPcl.Settings
         private static readonly string DefaultAppVersion = "1.0";
 
         const string ApiUrlKey = "apiurl";
-        private static readonly string DefaultApiUrl = "https://onecrm.oneportal.is/mobile/OneMobileWebService/";
+        private static readonly string DefaultApiUrl = "https://onecrm.oneportal.is/mobile/OneMobileWebService/RestService.svc/";
 
         const string UserServicePathKey = "userservicepath";
-        private static readonly string DefaultUserServicePath = "https://onecrm.oneportal.is/mobile/OneMobileWebService/";
+        private static readonly string DefaultUserServicePath = "https://onecrm.oneportal.is/mobile/OneMobileWebService/RestService.svc/";
 
         const string UsernameKey = "username";
         private static readonly string DefaultUsername = string.Empty;

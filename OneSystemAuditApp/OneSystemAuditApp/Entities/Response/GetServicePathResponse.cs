@@ -7,5 +7,6 @@ namespace AuditAppPcl.Entities.Response
         public bool Sucsess { get; set; }
         public List<string> Exception { get; set; }
         public string ServicePath { get; set; }
+        public string Company { get; set; }
     }
 }

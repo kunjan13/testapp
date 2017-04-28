@@ -71,6 +71,15 @@ namespace AuditAppPcl.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        internal static string ButtonSubmit {
+            get {
+                return ResourceManager.GetString("ButtonSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copyright @ Onesystems. All rights reserved..
         /// </summary>
         internal static string Copyright {
@@ -94,6 +103,15 @@ namespace AuditAppPcl.Resources {
         internal static string InvalidCredentials {
             get {
                 return ResourceManager.GetString("InvalidCredentials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PIN.
+        /// </summary>
+        internal static string LabelPin {
+            get {
+                return ResourceManager.GetString("LabelPin", resourceCulture);
             }
         }
         

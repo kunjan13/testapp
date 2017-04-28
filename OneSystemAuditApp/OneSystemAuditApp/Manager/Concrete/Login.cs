@@ -15,9 +15,20 @@ namespace AuditAppPcl.Manager.Concrete
 
         public GetServicePathResponse GetServicePath(string companyPin)
         {
-            //set town name 
+            var getServicePathResponce = new GetServicePathResponse();
             App.TownName = string.Empty;
-            return this.loginRepository.GetServicePath(companyPin);
+            getServicePathResponce =  this.loginRepository.GetServicePath(companyPin);
+            if(getServicePathResponce == null && !getServicePathResponce.Sucsess)
+            {
+                getServicePathResponce.Sucsess = false;
+            }
+            else
+            {
+                getServicePathResponce.Sucsess = true;
+                App.TownName = getServicePathResponce.Company;
+                Settings.Settings.UserServicePath = getServicePathResponce.ServicePath;
+            }
+            return getServicePathResponce;
         }
 
         public LoginResponse LoginUser(string userName, string password)

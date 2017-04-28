@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomUI\AuditHeadingLabel.cs" />
     <Compile Include="CustomUI\AuditTabbedPage.cs" />
     <Compile Include="Entities\Case.cs" />
     <Compile Include="Entities\MenuItems.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Manager\Contracts\ICaseServiceManager.cs" />
     <Compile Include="Repository\Concrete\CaseServiceRepository.cs" />
     <Compile Include="Repository\Contracts\ICaseServiceRepository.cs" />
+    <Compile Include="ViewModels\4DigitPinViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ListAuditsViewModel.cs" />
     <Compile Include="Views\App.xaml.cs">
@@ -108,6 +110,9 @@
     </Compile>
     <Compile Include="Views\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PinScreen.xaml.cs">
+      <DependentUpon>PinScreen.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\signature.xaml.cs">
       <DependentUpon>signature.xaml</DependentUpon>
@@ -244,6 +249,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\PinScreen.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

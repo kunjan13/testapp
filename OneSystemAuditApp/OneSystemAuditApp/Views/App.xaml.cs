@@ -24,8 +24,9 @@ namespace AuditAppPcl
 
             if (!IsUserLoggedIn)
             {
+                MainPage = new AuditAppPcl.PinScreen();
                 //MainPage = new AuditAppPcl.Login();
-                MainPage = new MainPage();
+                //MainPage = new MainPage();
             }
             else
             {
