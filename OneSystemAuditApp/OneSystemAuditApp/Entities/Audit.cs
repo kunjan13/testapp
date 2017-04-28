@@ -24,10 +24,11 @@ namespace AuditAppPcl.Entities
         public DateTime InspectionDate { get; set; } //[Date]
         public string InspectionNumber { get; set; } //[Number]: Number
         public string Comment { get; set; }//[Comment]
-        public List<Comment> Comments { get; set; }
         public List<Attachement> Attachements { get; set; } //max 30 //img to attachements, comments to comments table
         public string Signature { get; set; }//comment table
         public byte[] SignatureIMG { get; set; } //Attachemnts
+
+        public bool HasAttachment { get; set; }
 
 
         //App fields

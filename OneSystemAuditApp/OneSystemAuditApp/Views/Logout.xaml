@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AuditAppPcl.Views.Logout"
+             xmlns:resources="clr-namespace:AuditAppPcl.Resources;assembly=AuditAppPcl"
+             Title="{resources:Translate Menu_Logout_Clean}">
+    <StackLayout Padding="10">
+        <Label Text="ContentPage" FontSize="40"/>
+        <Label Text="Logout Page will load here"/>
+    </StackLayout>
+</ContentPage>

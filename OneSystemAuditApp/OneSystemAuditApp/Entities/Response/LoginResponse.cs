@@ -11,6 +11,12 @@ namespace AuditAppPcl.Entities.Response
 
         public string LoginToken { get; set; }
 
+        public string Username { get; set; }
+
+        public string FullName { get; set; }
+
+        public string Initials { get; set; }
+
         public User User { get; set; }
     }
 }

@@ -59,6 +59,9 @@
     <Compile Include="ViewModels\4DigitPinViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ListAuditsViewModel.cs" />
+    <Compile Include="Views\ActiveAudits.xaml.cs">
+      <DependentUpon>ActiveAudits.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -77,6 +80,9 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Entities\Response\LoginResponse.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="Views\Cases.xaml.cs">
+      <DependentUpon>Cases.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListAudits.xaml.cs">
       <DependentUpon>ListAudits.xaml</DependentUpon>
     </Compile>
@@ -105,11 +111,20 @@
     <Compile Include="RestClient\IRestClient.cs" />
     <Compile Include="RestClient\RestClient.cs" />
     <Compile Include="Settings\Settings.cs" />
+    <Compile Include="Views\Logout.xaml.cs">
+      <DependentUpon>Logout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MasterPage.xaml.cs">
       <DependentUpon>MasterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyAudits.xaml.cs">
+      <DependentUpon>MyAudits.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PinScreen.xaml.cs">
       <DependentUpon>PinScreen.xaml</DependentUpon>
@@ -249,6 +264,36 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MyAudits.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ActiveAudits.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Cases.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Settings.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Logout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
