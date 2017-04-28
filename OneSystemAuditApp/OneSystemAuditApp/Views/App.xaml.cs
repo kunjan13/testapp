@@ -1,4 +1,5 @@
 ﻿using AuditAppPcl.Manager.Contracts;
+using AuditAppPcl.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +24,8 @@ namespace AuditAppPcl
 
             if (!IsUserLoggedIn)
             {
-                MainPage = new AuditAppPcl.Login();
-                //MainPage = new AuditAppPcl.MainPage();
+                //MainPage = new AuditAppPcl.Login();
+                MainPage = new MainPage();
             }
             else
             {

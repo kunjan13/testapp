@@ -32,7 +32,14 @@ namespace AuditAppPcl
 
         private List<Audit> GetAudits()
         {
-            return Task.Run(async () => await auditServiceManager.GetAudits()).Result;
+            var audits = new List<Audit>();
+            audits.Add(new Entities.Audit() { ApplicantName = "xyz", ItemID = "12312", InspectionStatus = "aasdfasd" });
+            audits.Add(new Entities.Audit() { ApplicantName = "xyz", ItemID = "12312", InspectionStatus = "aasdfasd" });
+            audits.Add(new Entities.Audit() { ApplicantName = "xyz", ItemID = "12312", InspectionStatus = "aasdfasd" });
+            audits.Add(new Entities.Audit() { ApplicantName = "xyz", ItemID = "12312", InspectionStatus = "aasdfasd" });
+            audits.Add(new Entities.Audit() { ApplicantName = "xyz", ItemID = "12312", InspectionStatus = "aasdfasd" });
+            return audits;
+            //return Task.Run(async () => await auditServiceManager.GetAudits()).Result;
         }
     }
 }
