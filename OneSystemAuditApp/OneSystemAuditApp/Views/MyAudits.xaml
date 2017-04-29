@@ -2,9 +2,99 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AuditAppPcl.Views.MyAudits"
-             Title="MyAudits">
-    <StackLayout Padding="10">
-        <Label Text="ContentPage" FontSize="40"/>
-        <Label Text="My Audits will load here"/>
-    </StackLayout>
+             xmlns:resources="clr-namespace:AuditAppPcl.Resources;assembly=AuditAppPcl"
+             Title="{resources:Translate Menu_MyAudits}">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" BackgroundColor="#E5E3E4">
+            <StackLayout Spacing="10" Margin="10,0,10,0" Padding="10" Orientation="Horizontal" WidthRequest="700" BackgroundColor="White">
+                <Grid>
+                    <Grid.ColumnDefinitions width="Auto"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="Auto"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="Auto"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="Auto"></Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Text="Case No." VerticalOptions="Center" Grid.Column="0" Grid.Row="0"></Label>
+                    <Entry x:Name="entryCaseNumber" WidthRequest="300" VerticalOptions="Center" Grid.Column="1" Grid.Row="0" Text="{Binding CaseNumber}"></Entry>
+                    <Label Text="Applicant Name" VerticalOptions="Center" Grid.Column="2" Grid.Row="0"></Label>
+                    <Entry x:Name="entryApplicantName" WidthRequest="200" VerticalOptions="Center" Grid.Column="3" Grid.Row="0" Text="{Binding ApplicantName}"></Entry>
+
+
+                    <Label Text="Status" VerticalOptions="Center" Grid.Column="0" Grid.Row="1"></Label>
+                    <Picker x:Name="pickerStatuses" SelectedItem="{Binding SelectedInspectionStatus}" WidthRequest="250" VerticalOptions="Center" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding InspectionStatuses}">
+                    </Picker>
+                    <Label Text="Inspector" VerticalOptions="Center" Grid.Column="2" Grid.Row="1"></Label>
+                    <Entry x:Name="entryInspector" WidthRequest="200" VerticalOptions="Center" Grid.Column="3" Grid.Row="1" Text="{Binding Inspector}"></Entry>
+                </Grid>
+                <Button Image="icon_search"  x:Name="searchicon" Command="{Binding SearchCommand}"></Button>
+            </StackLayout>
+            <StackLayout BackgroundColor="White" Orientation="Vertical" Margin="10,0,10,0">
+                <Grid BackgroundColor="White">
+                    <Grid.ColumnDefinitions width="Auto"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="Auto"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="Auto"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="150"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="Auto"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Text="Audit Type" Style="{StaticResource listViewHeaderLabel}"></Label>
+                    <Label Grid.Column="1" Text="Case No." Style="{StaticResource listViewHeaderLabel}"></Label>
+                    <Label Grid.Column="2" Text="Applicant Name" Style="{StaticResource listViewHeaderLabel}"></Label>
+                    <Label Grid.Column="3" Text="Audit Date" Style="{StaticResource listViewHeaderLabel}">
+                        <Label.GestureRecognizers>
+                            <!--Tapped="OnSortAuditDateAction"-->
+                            <TapGestureRecognizer Command="{Binding SortCommand}"  CommandParameter="InspectionDate"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Image Source="{Binding InspectionDateSortImage}" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" Grid.Column="3" HorizontalOptions="End" />
+                    <Label Grid.Column="4" Text="Status" Style="{StaticResource listViewHeaderLabel}">
+                        <Label.GestureRecognizers>
+                            <!--Tapped="OnSortAuditDateAction"-->
+                            <TapGestureRecognizer Command="{Binding SortCommand}"  CommandParameter="InspectionStatus"></TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Image Source="{Binding InspectionStatusSortImage}" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" Grid.Column="4" HorizontalOptions="End"></Image>
+                    <Label Grid.Column="5" Text="Perform Audit" Style="{StaticResource listViewHeaderLabel}"></Label>
+                    <Label Grid.Column="6" Text="Remove Audit" Style="{StaticResource listViewHeaderLabel}"></Label>
+                </Grid>
+                <ListView x:Name="myAuditsListView" ItemsSource="{Binding Audits}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell Appearing="Cell_OnAppearing">
+                                <Grid HorizontalOptions="StartAndExpand">
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions width="*"></Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label Style="{StaticResource listViewItemLabel}" Grid.Column="0" Text="{Binding InspectionType}"></Label>
+                                    <Label Style="{StaticResource listViewItemLabel}" Grid.Column="1" Text="{Binding ParentID}"></Label>
+                                    <Label Style="{StaticResource listViewItemLabel}" Grid.Column="2" Text="{Binding ApplicantName}"></Label>
+                                    <Label Style="{StaticResource listViewItemLabel}" Grid.Column="3" Text="{Binding DisplayInspectionDate}"></Label>
+                                    <Label  Style="{StaticResource listViewItemLabel}" Grid.Column="4" Text="{Binding InspectionStatus}"></Label>
+                                    <StackLayout Orientation="Horizontal" Grid.Column="5" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Button Text="Perform" BackgroundColor="#0C585C" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60" HeightRequest="30" TextColor="White"></Button>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" Grid.Column="6" HorizontalOptions="Center" VerticalOptions="Center">
+                                        <Button Text="Remove" BackgroundColor="#0C585C" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="60" HeightRequest="30" TextColor="White"></Button>
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

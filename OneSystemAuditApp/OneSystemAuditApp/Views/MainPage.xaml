@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:AuditAppPcl;assembly:AuditAppPcl"
+            xmlns:local="clr-namespace:AuditAppPcl;assembly:AuditAppPcl"
+            xmlns:localViews="clr-namespace:AuditAppPcl.Views;assembly:AuditAppPcl"
              x:Class="AuditAppPcl.Views.MainPage">
 
     <MasterDetailPage.Master>
@@ -10,7 +11,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage BarBackgroundColor="#0C585C" BarTextColor="#F3A116">
             <x:Arguments>
-                <local:ListAudits></local:ListAudits>
+                <localViews:MyAudits></localViews:MyAudits>
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

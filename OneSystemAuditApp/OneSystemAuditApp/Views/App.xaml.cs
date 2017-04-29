@@ -26,14 +26,14 @@ namespace AuditAppPcl
             {
                 //if (Settings.Settings.Pin == string.Empty)
                 //{
-                    MainPage = new AuditAppPcl.PinScreen();
+                    //MainPage = new AuditAppPcl.PinScreen();
                 //}
                 //else
                 //{
                 //    MainPage = new AuditAppPcl.Login();
                 //}
                 //MainPage = new AuditAppPcl.Login();
-                //MainPage = new MainPage();
+                MainPage = new MainPage();
             }
             else
             {
