@@ -32,6 +32,18 @@ namespace AuditAppPcl.Database
             return database.Table<Audit>().ToListAsync();
         }
 
+        public Task<List<Audit>> GetActiveAudits()
+        {
+            try
+            {
+                return database.QueryAsync<Audit>("SELECT * FROM [Audit] WHERE UserName IS NULL");
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         public Task<Audit> GetAuditById(int id)
         {
             return database.Table<Audit>().Where(i => i.AuditAppId == id).FirstOrDefaultAsync();

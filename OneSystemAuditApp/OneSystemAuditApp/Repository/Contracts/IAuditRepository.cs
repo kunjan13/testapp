@@ -18,5 +18,7 @@ namespace AuditAppPcl.Repository.Contracts
         Task InsertAudit(Audit audit);
 
         Task InsertAudits(List<Audit> audits);
+
+        Task<List<Audit>> GetActiveAudits();
     }
 }

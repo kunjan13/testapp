@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AuditAppPcl.Entities;
 using AuditAppPcl.Repository.Contracts;
+using AuditAppPcl.Entities.Database;
 
 namespace AuditAppPcl.Manager.Concrete
 {
@@ -18,13 +19,20 @@ namespace AuditAppPcl.Manager.Concrete
             auditRepository = UnityConfig.IAuditRepository;
         }
 
-        public async Task InsertAudits(List<Audit> audits)
+        public async Task<List<Entities.Database.Audit>> GetActiveAudits()
+        {
+            return await auditRepository.GetActiveAudits();
+        }
+
+        public async Task InsertAudits(List<Entities.Audit> audits)
         {
             var convertedAudits = ConvertAuditIntoLocalAudit(audits);
             await auditRepository.InsertAudits(convertedAudits);
         }
 
-        private List<Entities.Database.Audit> ConvertAuditIntoLocalAudit(List<Audit> audits)
+       
+
+        private List<Entities.Database.Audit> ConvertAuditIntoLocalAudit(List<Entities.Audit> audits)
         {
             List<Entities.Database.Audit> convertedAudits = new List<Entities.Database.Audit>();
             foreach (var audit in audits)

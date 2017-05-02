@@ -10,5 +10,6 @@ namespace AuditAppPcl.Manager.Contracts
     public interface IAuditManager
     {
         Task InsertAudits(List<Audit> audits);
+        Task<List<Entities.Database.Audit>> GetActiveAudits();
     }
 }

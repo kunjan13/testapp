@@ -56,5 +56,10 @@ namespace AuditAppPcl.Repository.Concrete
         {
             await database.InsertAudits(audits);
         }
+
+        public async Task<List<Audit>> GetActiveAudits()
+        {
+            return await database.GetActiveAudits();
+        }
     }
 }

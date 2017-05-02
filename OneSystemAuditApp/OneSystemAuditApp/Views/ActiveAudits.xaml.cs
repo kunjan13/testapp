@@ -20,7 +20,8 @@ namespace AuditAppPcl.Views
             auditServiceManager = UnityConfig.IAuditServiceManager;
             auditManager = UnityConfig.IAuditManager;
             InitializeComponent();
-            DownloadNewAuditAndSave();
+            //DownloadNewAuditAndSave();
+            var activeAudits  = GetActiveAudits();
         }
 
         private void DownloadNewAuditAndSave()
@@ -30,6 +31,12 @@ namespace AuditAppPcl.Views
             {
                 auditManager.InsertAudits(listOfAudits);
             }
+        }
+
+        private List<Entities.Database.Audit> GetActiveAudits()
+        {
+            var activeAudits = auditManager.GetActiveAudits().Result;
+            return activeAudits;
         }
     }
 }
