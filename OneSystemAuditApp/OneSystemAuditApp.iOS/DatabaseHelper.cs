@@ -2,11 +2,12 @@
 using System.IO;
 using OneSystemAudit.iOS;
 using Xamarin.Forms;
+using AuditAppPcl.Database;
 
 [assembly: Dependency(typeof(DatabaseHelper))]
 namespace OneSystemAudit.iOS
 {
-    public class DatabaseHelper
+    public class DatabaseHelper: IDatabaseHelper
     {
         public string GetLocalFilePath(string filename)
         {

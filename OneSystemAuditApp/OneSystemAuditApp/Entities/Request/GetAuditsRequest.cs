@@ -9,5 +9,6 @@ namespace AuditAppPcl.Entities.Request
         public string LoginToken { get; set; }
         public bool GetAttachments { get; set; }
         public List<string> ItemIDs { get; set; }
+        //public DateTime FromDateTime { get; set; }
     }
 }

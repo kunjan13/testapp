@@ -16,20 +16,23 @@ namespace AuditAppPcl.Repository.Concrete
 
         public AuditServiceRepository(IRestClient restClient) {
             this.restClient = restClient;
-            this.restClient.BaseUrl = Settings.Settings.UserServicePath;
+            this.restClient.BaseUrl = Settings.Settings.UserServicePath + "/";
         }
 
         public async Task<List<Audit>> GetAudits()
         {
             var auditsRequest = new GetAuditsRequest();
-            auditsRequest.LoginToken = Settings.Settings.LoginToken;
-            auditsRequest.Username = Settings.Settings.Username;
-            var data = await restClient.PostAsync<GetAuditsRequest, GetAuditsResponse>("GetAudits", auditsRequest);
+            auditsRequest.LoginToken = "nfqG63uyhP7TcEmD9Et0bJdob9E48SPzad1EgbQebmSaARENB3NgbvveCC4wZZ0YA8iych";//Settings.Settings.LoginToken;
+            auditsRequest.Username = "gatewayuser";//Settings.Settings.Username;
+            auditsRequest.GetAttachments = true;
+            auditsRequest.ItemIDs = new List<string>();
+            //var data = await restClient.PostAsync<GetAuditsRequest, GetAuditsResponse>("GetAudits", auditsRequest);
+            var data = Task.Run(async () => await restClient.PostAsync<GetAuditsRequest, GetAuditsResponse>("GetAudits", auditsRequest)).Result;
             if (data.Sucsess) {
-                for (int i = 0; i < 75; i++)
-                {
-                    data.Audits.Add(data.Audits[0]);
-                }
+                //for (int i = 0; i < 75; i++)
+                //{
+                //    data.Audits.Add(data.Audits[0]);
+                //}
                 return data.Audits;
             }
             return null;

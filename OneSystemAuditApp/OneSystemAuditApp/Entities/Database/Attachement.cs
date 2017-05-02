@@ -12,10 +12,12 @@ namespace AuditAppPcl.Entities.Database
     {
         [PrimaryKey, AutoIncrement]
         public int AuditAppAttachementId { get; set; }
-       
+
         [ForeignKey(typeof(Audit))]
+        public int AuditAppId { get; set; }
+
         public string ItemID { get; set; }
-        public List<Comment> Comments { get; set; }
+        public string Comments { get; set; }
         public byte[] Data { get; set; }
         public string Name { get; set; }
         public string Extention { get; set; }

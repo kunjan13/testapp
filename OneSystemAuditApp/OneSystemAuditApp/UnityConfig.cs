@@ -3,6 +3,8 @@ using AuditAppPcl.Repository.Contracts;
 using AuditAppPcl.Repository.Concrete;
 using ManagerContract = AuditAppPcl.Manager.Contracts;
 using ManagerConcrete = AuditAppPcl.Manager.Concrete;
+using RepositoryContract = AuditAppPcl.Repository.Contracts;
+using RepositoryConcrete = AuditAppPcl.Repository.Concrete;
 using Microsoft.Practices.ServiceLocation;
 using AuditAppPcl.RestClient;
 
@@ -43,6 +45,22 @@ namespace AuditAppPcl
             }
         }
 
+        public static ManagerContract.IAuditManager IAuditManager
+        {
+            get
+            {
+                return container.Resolve<ManagerContract.IAuditManager>();
+            }
+        }
+
+        public static RepositoryContract.IAuditRepository IAuditRepository
+        {
+            get
+            {
+                return container.Resolve<RepositoryContract.IAuditRepository>();
+            }
+        }
+
         public static void Configure()
         {
             container.RegisterType<ILoginRepository, LoginRepository>();
@@ -52,6 +70,8 @@ namespace AuditAppPcl
             container.RegisterType<ManagerContract.ILogin, ManagerConcrete.Login>();
             container.RegisterType<ManagerContract.IAuditServiceManager, ManagerConcrete.AuditServiceManager>();
             container.RegisterType<ManagerContract.ICaseServiceManager, ManagerConcrete.CaseServiceManager>();
+            container.RegisterType<RepositoryContract.IAuditRepository, RepositoryConcrete.AuditRepository>();
+            container.RegisterType<ManagerContract.IAuditManager, ManagerConcrete.AuditManager>();
             container.RegisterType<IRestClient, AuditAppPcl.RestClient.RestClient>();
             container.RegisterType<Login>(new ContainerControlledLifetimeManager());
 

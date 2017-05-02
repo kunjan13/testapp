@@ -14,10 +14,17 @@ namespace AuditAppPcl.Database
 
         public AuditAppDatabase(string databasePath)
         {
-            database = new SQLiteAsyncConnection(databasePath);
-            database.CreateTableAsync<Comment>().Wait();
-            database.CreateTableAsync<Attachement>().Wait();
-            database.CreateTableAsync<Audit>().Wait();
+            try
+            {
+                database = new SQLiteAsyncConnection(databasePath);
+                database.CreateTableAsync<Audit>().Wait();
+                database.CreateTableAsync<Attachement>().Wait();
+                database.CreateTableAsync<Case>().Wait();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public Task<List<Audit>> GetAudits()
@@ -43,12 +50,66 @@ namespace AuditAppPcl.Database
                 {
                     trans.Insert(attachment);
                 }
-                foreach (var comment in audit.Comments)
-                {
-                    trans.Insert(comment);
-                }
                 trans.Insert(audit);
             });
+        }
+
+        public async Task InsertAudits(List<Audit> audits)
+        {
+            try
+            {
+                await database.RunInTransactionAsync(trans =>
+                {
+                    foreach (var audit in audits)
+                    {
+                        trans.Insert(audit);
+                        if (audit.Attachements == null)
+                        {
+                            audit.Attachements = new List<Attachement>();
+                        }
+
+                        foreach (var attachment in audit.Attachements)
+                        {
+                            attachment.AuditAppId = audit.AuditAppId;
+                            trans.Insert(attachment);
+                        }
+
+                        //var updatedAudit = database.QueryAsync<Audit>("select * from Audit where ItemID = ? and UserName != null", audit.ItemID).Result.FirstOrDefault();
+                        //bool updateAttachment = true;
+                        //if(updatedAudit != null)
+                        //{
+                        //    if(updatedAudit.UserName == null)
+                        //    {
+                        //        trans.Update(audit);
+                        //    }
+                        //}else
+                        //{
+                        //    trans.Insert(audit);
+                        //    updateAttachment = true;
+                        //}
+
+                        //if (updateAttachment)
+                        //{
+                        //    trans.Execute("delete from Attachement where AuditAppId = ?", audit.AuditAppId);
+
+                        //    if (audit.Attachements == null)
+                        //    {
+                        //        audit.Attachements = new List<Attachement>();
+                        //    }
+
+                        //    foreach (var attachment in audit.Attachements)
+                        //    {
+                        //        attachment.AuditAppId = audit.AuditAppId;
+                        //        trans.Insert(attachment);
+                        //    }
+                        //}
+                    }
+                });
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
     }

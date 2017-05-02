@@ -27,6 +27,7 @@ namespace AuditAppPcl
             //vm.SubmitCommand.Execute(null);
             versionlbl.Text = string.Format(AppResources.Version + " {0}", Settings.Settings.AppVersion);
             copyrightlbl.Text = AppResources.Copyright;
+            submitButton.IsEnabled = false;
         }
 
         void Entry_TextChanged(object sender, TextChangedEventArgs e)

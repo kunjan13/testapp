@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AuditAppPcl.Manager.Contracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,23 @@ namespace AuditAppPcl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ActiveAudits : ContentPage
     {
+        IAuditServiceManager auditServiceManager;
+        IAuditManager auditManager;
         public ActiveAudits()
         {
+            auditServiceManager = UnityConfig.IAuditServiceManager;
+            auditManager = UnityConfig.IAuditManager;
             InitializeComponent();
+            DownloadNewAuditAndSave();
+        }
+
+        private void DownloadNewAuditAndSave()
+        {
+            var listOfAudits = auditServiceManager.GetAudits().Result;
+            if(listOfAudits != null && listOfAudits.Count > 0)
+            {
+                auditManager.InsertAudits(listOfAudits);
+            }
         }
     }
 }

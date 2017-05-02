@@ -21,9 +21,8 @@ namespace AuditAppPcl
         public IAuditServiceManager auditServiceManager;
         public ListAudits()
         {
-            this.auditServiceManager = UnityConfig.IAuditServiceManager;
             InitializeComponent();
-
+            this.auditServiceManager = UnityConfig.IAuditServiceManager;
             //listView.ItemTemplate = new DataTemplate(typeof(TextCell)); // has context actions defined
             //listView.ItemTemplate.SetBinding(TextCell.TextProperty, "userId");
             //listView.ItemTemplate.SetBinding(TextCell.DetailProperty, "body");
