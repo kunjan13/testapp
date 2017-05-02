@@ -24,7 +24,7 @@ namespace AuditAppPcl
             {
                 Name = AppResources.Menu_MyAudits,
                 IsSelected = true,
-                TargetType = typeof(ListAudits)
+                TargetType = typeof(MyAudits)
             });
             menuItems.Add(new MenuItems
             {

@@ -22,6 +22,8 @@ namespace AuditAppPcl.Entities
         public string BuildingOfficer { get; set; }//[BuildingOfficer]:master
         public string OBOBuildingOfficer { get; set; }//[OBOBuildingOfficer]:person
         public DateTime InspectionDate { get; set; } //[Date]
+
+        public string DisplayInspectionDate { get; set; } //[Date]
         public string InspectionNumber { get; set; } //[Number]: Number
         public string Comment { get; set; }//[Comment]
         public List<Attachement> Attachements { get; set; } //max 30 //img to attachements, comments to comments table

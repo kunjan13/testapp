@@ -9,6 +9,19 @@
                 <Setter Property="BarBackgroundColor" Value="#0C585C"></Setter>
                 <Setter Property="BarTextColor" Value="#FCA412"></Setter>
             </Style>
+
+            <Style x:Key="listViewItemLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="BackgroundColor" Value="Yellow" />
+            </Style>
+            <Style x:Key="listViewHeaderLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
         </ResourceDictionary>
         <!-- Application resource dictionary -->
 
